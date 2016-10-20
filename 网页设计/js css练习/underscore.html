@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>underscore</title>
+</head>
+<body>
+
+
+
+
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript">
+var arr = [1,2,3,4,5];
+var brr = [];
+var obj = {a:1,c:'d',e:'f',h:'k'};
+_.each(arr,function(item,b,c) {
+	console.log(c);
+});
+document.write('<select>'+brr+'</select>');
+_.each(obj,function(item,key,c){
+	console.log(c);
+})
+
+var student = [{name:'wanghe',
+				age:23,
+				gender:'man'},
+				{name:'wanghe',
+				age:21,
+				gender:'man'},
+				{name:'wanghe',
+				age:51,
+				gender:'man'},
+				{name:'wanghe',
+				age:21,
+				gender:'man'},
+				{name:'wanghe',
+				age:11,
+				gender:'man'}
+			]
+console.log(student);
+var age = 0,asd;
+for(var i = 0;i < student.length ;i++){
+	if(student[i].age > age){
+		age = student[i].age;
+		asd = student[i]
+	}
+
+}
+console.log(asd)
+var r = _.max(student,function(x){return x.age})
+console.log(r)
+
+var t = _.sortBy(student,'age');
+console.log(t);
+
+</script>
+</body>
+</html>

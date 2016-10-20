@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+<script>
+/////////////////////第一种方法///////////////////////////////////////////
+var total = [1,1,1,1,1,7,1,1,2,'1','2',3,4,5]
+function isInArr(Arr,item){
+    for(var i = 0;i < Arr.length;i++){
+        if (Arr[i] === item){
+            return true;
+        }
+    }
+    return false;
+}
+function only(Arr){
+    var x = [];
+    for(var i = 0;i < Arr.length;i++){
+        if(!isInArr(x,Arr[i])){
+            x.push(Arr[i])
+        }       
+    }
+    return x;
+}
+console.log(only(total))
+////////////////////第二种方法///////////////////////////////////////////
+function only2(Arr){
+    var x = {};
+    var arr = [];
+    for(var i = 0;i < Arr.length;i++){
+        x[Arr[i]] = '';
+    }
+    for(key in x){
+        arr.push(key);
+    }
+    return arr;
+}
+console.log(only2(total));
+</script>
+</body>
+</html>

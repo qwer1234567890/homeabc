@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding: 0;
+}
+#topBtn{
+    width: 40px;
+    height: 40px;
+    background-color:#ccc;
+    border-radius: 10px;
+    position:fixed;
+    bottom:30px;
+    right:20px;
+    cursor:pointer;
+    display:none;
+}
+.top-wp{
+     width: 1000px;
+     height: 600px;
+    background-color: #3CB43C;
+     margin:0 auto;
+ }
+ .nav{
+     height: 65px;
+     width: 1000px;
+     background-image: url("../img/灵动菜单.png");
+     background-position: 0 -1px;
+     margin:0 auto;
+     cursor: pointer;
+ }
+ .bottom-wp{
+     width: 1000px;
+     height: 2000px;
+     background-color: #3b5998;
+     margin:0 auto;;
+ }
+ .nav.on{
+     position: fixed;
+     top:0;
+     left:50%;
+     margin-left: -500px;
+ }
+.bottom-wp.on{
+     margin-top: 65px;
+ }

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check-box的全选和取消</title>
+    <style>
+        .out{
+            width: 300px;
+            height: 200px;
+            border:1px solid black;
+            background-color:green;
+            text-indent:50px;
+            position:relative;
+        }
+        .out label{
+            display:block;
+        }
+       .all{
+            position:absolute;
+            top:0;
+            right:50px;
+        }
+    </style>
+</head>
+<body>
+<form action="" class="out">  
+    <div id="wap">
+        <label for=""><input type="checkbox">菜单</label>
+        <label for=""><input type="checkbox">编辑</label>
+        <label for=""><input type="checkbox">选择</label>
+        <label for=""><input type="checkbox">查看</label>
+        <label for=""><input type="checkbox">转到</label>
+        <label for=""><input type="checkbox">工具</label>
+        <label for=""><input type="checkbox">项目</label>
+        <label for=""><input type="checkbox">首选项</label>
+        <label for=""><input type="checkbox">帮助</label>
+    </div> 
+    <label for=""  class="all"><input type="checkbox" id="all">全选</label>
+</form>
+
+<script>
+!function(window,document,undefined){
+    var all = document.getElementById('all');
+    var wap = document.getElementById('wap');
+    var inputs = wap.getElementsByTagName('input');
+    var i;
+//////////////     当all被点击时，wap下所有input标签的checked属性值为true   ///////////
+    all.onclick = function() {
+        if(!isAllChoose()){
+            for(i = 0;i < inputs.length;i++){           
+                inputs[i].checked = true;
+            }    
+        }else{
+            for(i = 0;i < inputs.length;i++){           
+                inputs[i].checked = false;
+            }     
+        }    
+    }
+///////////////    判定wap下是否所有input标签checked属性都为ture/////////////////////////////////////
+    function isAllChoose(){
+        for(i = 0;i < inputs.length;i++){
+            if(!inputs[i].checked){
+                return false;
+            }
+        }
+        return true;
+    }
+//// 当wap下第i项input标签被点击时若此时所有input标签属性都为true则all的checked属性为true////////////////
+    function abc(){
+        inputs[i].onclick = function(){
+            if(isAllChoose()){
+                all.checked = true;
+            }else{
+               all.checked = false; 
+            }
+        }
+    }
+///////////遍历每个input被点击时所有inputs的checked属性/////////////////////////////////////////////
+    for(i = 0;i < inputs.length;i++){
+        abc();
+    }
+}(window,document)
+</script>
+</body>
+</html>

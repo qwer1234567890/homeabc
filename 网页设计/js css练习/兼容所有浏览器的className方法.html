@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容所有浏览器的className方法</title>
+</head>
+<body>
+<div class="cls1 abc ">cls1 abc</div>
+<div class="cls2">cls2</div>
+<span class="cls1">cls1</span>
+<div id="wp">
+    <input type="text" class="cls2" value="cls2">
+    <input type="text" class="cls1" value="cls1">
+    <div class="cls5">cls5</div>
+</div>
+
+
+
+<script>
+var wp = document.getElementById('wp')
+var text = getElementsByClsName('cls1',wp);
+for(var i = 0;i <text.length;i++){
+    text[i].style.backgroundColor = 'red';
+}
+
+
+function getElementsByClsName(clsName,context){
+    var elements,elementsArr = [],cls,i;
+    if(!document.getElementsByClassName){
+        context = context || document;
+        return context.getElementsByClassName(clsName);
+    }else{
+        context = context || document;
+        elements = context.getElementsByTagName('*');
+        for (i=0; i<elements.length; i++) {
+            cls = elements[i].className;
+            if (!cls) {
+                continue;
+            }
+            if (isInclude(clsName, cls)) {
+                elementsArr.push(elements[i]);
+            }
+        }
+        return elementsArr;
+    }
+};
+
+function isInclude(cls, allCls) {
+    var arr = allCls.split(' ');
+    for (var i=0; i<arr.length; i++) {
+        if (arr[i] == cls) {
+            return true;
+        }
+    }
+    return false;
+}
+
+</script> 
+</body>
+</html>

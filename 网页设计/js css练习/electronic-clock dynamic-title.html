@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电子时钟 获取数据类型</title>
+</head>
+<body>
+<div id="clock" style="width:300px;height:80px;font-size:25px;color:blue;background-color:pink;border:1px solid black;line-height:80px;text-align:center;margin:0 auto;">xxxx年xx月xx日 00:00:00</div>
+    
+<script src="js/helper.js"></script>
+<script>
+!function(window,document,undefined){
+    ////////////      电子时钟       ////////////////////////////////////////////////////////////////////////////////////
+    var clock = Helper.dom('clock');
+    function time(){
+        clock.innerHTML = Helper.Dater()[0] + '年' + Helper.Dater()[1] + '月' + Helper.Dater()[2] + '日 ' + Helper.Dater()[3] + ':' + Helper.Dater()[4] + ':' + Helper.Dater()[5];
+    };
+    time();
+    setInterval(time,1000);
+    ////////////      动态标题       ////////////////////////////////////////////////////////////////////////////////////
+    function flashTitle() {
+        var title = document.title;
+        setInterval(
+            function(){
+                if(document.title == title){
+                    document.title = '动态标题';
+                }else{
+                    document.title = title;
+                }
+            },1000)
+    }
+    flashTitle();
+    ////////////     得到数据类型   /////////////////////////////////////////////////////////////////////////////////////
+    var x = Helper.getType(Helper.Dater());
+    console.log(x);
+}(window,document)
+</script>
+</body>
+</html>

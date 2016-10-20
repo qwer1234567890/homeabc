@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>金字塔</title>
+    <style>
+    span{
+        display:inline-block;
+        width:20px;
+        height:20px;
+    }
+    </style>
+</head>
+<body>
+    
+
+
+<script type="text/javascript">
+function pyramid(num){
+    for(var i = 0;i <= num;i++){
+        for(var k = num;k >= i;k--){
+            document.write('<span></span>');
+        }
+        for(var m = 0;m <= 2*i;m++){
+        document.write('<span>*</span>');
+        }
+        for(var n = num*2;n >= i*2;n--){
+        document.write('<span></span>');
+        }
+        for(var m = 0;m <= 2*i;m++){
+        document.write('<span>*</span>');
+        }
+
+        document.write('<br>');
+    }
+}
+pyramid(6);
+function pyramid2(num){
+    for(var i = 0;i <= num;i++){
+        for(var k = 0;k <= i;k++){
+            document.write('<span></span>');
+        }
+        for(var m = num*2;m >= i*2;m--){
+        document.write('<span>*</span>');
+        }
+        document.write('<br>');
+    }
+}
+pyramid2(13);
+
+
+
+</script>
+</body>
+</html>

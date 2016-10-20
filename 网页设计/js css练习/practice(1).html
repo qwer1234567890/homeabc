@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阿斯顿法国和健康</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<input type="" name="" id="ipt" value = "asd">
+<a href="http://www.baidu.com" id="connect">你好</a>
+<script type="text/javascript">
+var point = {
+	x:0,
+	moveTo:function(x){
+		var moveX = function(){
+			this.x = x;
+		console.log(this);	////////////////////////////window
+		}
+		console.log(this);   ////////////////////////////obj{x:0}
+		moveX(1);
+	}
+}
+console.log(this);///////////////////////////////////////window
+point.moveTo(20);
+var connect1 = document.getElementById('connect');
+var ipt = document.getElementById('ipt');
+ipt.onclick = function(e){
+	e = e||window.event;
+	e.preventDefault();
+}
+connect1.onclick = function(e){
+	e = e||window.event;
+	e.preventDefault()
+}
+
+
+</script>
+</body>
+</html>

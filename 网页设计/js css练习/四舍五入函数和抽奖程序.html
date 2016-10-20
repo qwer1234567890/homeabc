@@ -1,0 +1,96 @@
+ <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四舍五入函数和抽奖程序</title>
+</head>
+<style>
+#gift{width: 400px;height: 100px;line-height:40px;background-color:pink;text-align: center;border:1px solid black;font-size:50px;line-height:100px;margin:0 auto;}
+.wap{text-align:center;}
+input{width: 300px;height: 34px;}
+#addBtn{width: 100px;text-align:center;height: 40px;}
+#on{width: 100px;text-align:center;height: 40px;}
+
+    
+</style>
+<body>
+<div id="gift">幸运抽奖</div><br>
+<div class="wap"><button id="on">开始</button><br><br><input type="text" id ="add"><button id="addBtn">新增</button></div>
+<script>
+var gift = document.getElementById('gift');
+var on = document.getElementById('on');
+var add = document.getElementById('add');
+var addBtn = document.getElementById('addBtn');
+var timer;
+var all = ['一等奖','二等奖','三等奖','四等奖','五等奖','六等奖','七等奖'];
+function go(){
+    var a = Math.floor(Math.random()*all.length + 0);
+
+    gift.innerHTML = all[a];
+}
+on.onclick = function(){
+    console.log(all)
+    if(timer){
+        clearInterval(timer);
+        on.innerHTML = '开始';
+        timer = undefined;
+    }else{
+        timer = setInterval(go,100);
+        on.innerHTML = '停止' ; 
+    }
+}
+addBtn.onclick = function(){
+//////////////        限定输入条件        //////////////
+    if(!add.value){
+        return alert('不能为空');
+    };
+   
+    if(add.value.indexOf(' ') >= 0) {
+        add.value = '';
+        return alert('不能有空格');
+    };
+    
+    if(add.value.indexOf('|')  == 0 || add.value.lastIndexOf('|') == add.value.length - 1){
+        add.value = '';
+        return alert('不能以|开头或结尾');
+    }
+    
+    if(add.value.indexOf('||') >= 0 ){
+        add.value = '';
+        return alert('不能有连续的|');
+    }
+///////////        限定不能添加重复项        /////////////////////
+    var addArr = add.value.split('|');
+    var addArrlen = addArr.length;
+
+    for(var i = 0; i < addArrlen; i++){
+        if(isInArr(all,addArr[i])){
+            add.value = ''; 
+            return alert(addArr[i]+'已存在');
+        }
+        else{
+            all.push(addArr[i]);
+            add.value = ''; 
+        }
+    }    
+}
+//////////         判断一个值是否在数组中的函数    ///////////////////
+function isInArr(Arr,x) {
+    for(var i = 0;i < all.length;i++){
+        if(x == all[i]){
+            return true;
+        }
+    }
+    return false;
+}
+////////////////          四舍五入       /////////////////////////////
+function abc(x,y){// x是需要运算的值;y是保留小数点位数.
+    var m,n;
+    m = Math.round(x*Math.pow(10,y));
+    n = m / Math.pow(10,y);
+    return n;
+}
+console.log(abc(1.54564,4))
+</script>
+</body>
+</html>

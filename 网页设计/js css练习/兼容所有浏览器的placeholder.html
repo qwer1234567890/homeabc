@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容所有浏览器的placeholder</title>
+    <style>
+    input{
+        height: 20px;
+        border:1px solid #bbb;
+        position: relative;
+        z-index: 2;
+        background-color:transparent;
+    }
+    .wp-ipt{
+        position: relative;
+    }
+    .rt-ipt{
+        position: absolute;
+        left:2px;
+        top:4px;
+        font-size:12px;
+        color:red;
+        z-index: 1;
+    }
+
+    </style>
+</head>
+<body>
+<input type="text" placeholder="asdasd">
+<input type="text">
+<input type="text" placeholder="我是div吗？">
+<input type="text">
+<input type="text">
+<input type="text" placeholder="accccc">
+<script>    
+function Fixplaceholder() {
+///////////只要浏览器兼容input标签的placeholder属性,无论相关标签是否设置placeholder属性,///////语句:'placeholder' in input 都为 true 若不兼容 则为false //////////////////////////////////////
+//    var input = document.createElement('input');
+//    if('placeholder' in input){
+//        return;
+//    }
+    doFix();
+
+}
+///////////首先将所有style="text"同时placeholder属性值为真的input标签遍历,然后加外壳span以及侧边span////
+function doFix (){
+    var ipts = document.getElementsByTagName('input'),
+    i = 0,len = ipts.length;
+    for(;i < len;i++){
+        if(ipts[i].type == 'text' && ipts[i].placeholder){
+           ipts[i].outerHTML = '<span class="wp-ipt">' + ipts[i].outerHTML + '<span class="rt-ipt">' + ipts[i].placeholder + '</span></span>'
+        }
+        ipts[i].onkeyup = iptKeyUp;///////////////键盘事件///////////////////////////////////////////
+    }
+}
+/////////////档输入框里面的值为空时 显示js添加的阴文div 反之隐藏/////////////////////////////////////
+function iptKeyUp() {
+    var val = this.value,
+    pl = this.parentNode.getElementsByTagName('span')[0];
+
+    if(val == ''){
+        pl.style.display = 'block';
+    }else{
+        pl.style.display = 'none';
+    }
+}
+Fixplaceholder();
+
+</script>
+</body>
+</html>

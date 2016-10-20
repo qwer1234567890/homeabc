@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progress bar button</title>
+    <style>
+    .innerBtn{
+        height: 42px;
+        width: 0;
+        position:absolute;
+        top:0;
+    }
+     #progressBtn{
+        height: 42px;
+        width: 200px;
+        background-color:pink;
+        border:1px solid black;
+        line-height:42px;
+        text-align:center;
+        font-size:25px;
+        margin:0 auto;
+        color:blue;
+        position:relative;
+        border-radius:10px;
+        overflow:hidden;
+        cursor:pointer;
+    }
+    #progressBtn:hover{
+        background: rgba(255, 192, 203, 0.8);
+    }
+    .icon{
+        float:right;
+        width: 20px;
+        height: 42px;
+        background-image:url(tutu/hao123/6.png);
+        background-position: -31px -422px;
+        opacity:0.4;
+    }
+    </style>
+</head>
+<body>
+<div id = "progressBtn"><b id="txtBtn">Progress Btn</b><div id="innerBtn" class="innerBtn"><i class="icon"></i></div></div>
+<script src = "js/helper.js"></script>
+<script>
+var progressBtn = Helper.dom('progressBtn');
+var innerBtn = Helper.dom('innerBtn');
+var txtBtn = Helper.dom('txtBtn');
+var i = 0;
+progressBtn.onclick = function(){
+    if(i){
+        return;
+    }
+    txtBtn.innerHTML = 'Waiting'
+    innerBtn.className = 'innerBtn';
+    setInterval(function(){  
+        i++;
+        innerBtn.style.width = i+'%';
+        if(i == 100){
+            i=1;
+        }
+    },20);    
+}
+</script>
+</body>
+</html>

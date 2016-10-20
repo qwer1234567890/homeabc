@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝计算器</title>
+    <title>淘宝计算器</title>
+    <style>
+        body{
+            font-style: 'microsoft yahei';
+        }
+        .wp{
+            margin:50px auto;
+            width:600px;
+        }
+        .wp>p{
+            margin: 20px;
+        }
+        .wp>p>span{
+            padding:8px;
+            border:1px solid #aaa;
+            font-size: 14px;
+            cursor: pointer;
+
+        }
+        .wp>p>span.on{
+            border:2px solid #ff5601;
+            padding:7px;
+            background-image: url("../img/tbicon.png");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <p>
+            <label>型号</label>
+            <span class="on" date-type="1">4.7英寸</span>
+            <span date-type="2">5.5英寸</span>
+        </p>
+        <p>
+            <label>颜色</label>
+            <span class="on">银色</span>
+            <span>金色</span>
+            <span>深空灰色</span>
+        </p>
+        <p>
+            <label>内存</label>
+            <span class="on" date-mem="3">16GB</span>
+            <span date-mem="4">32GB</span>
+            <span date-mem="5">64GB</span>
+        </p>
+        <p>
+            <label>版本</label>
+            <span class="on">公开版</span>
+            <span>移动赠费版</span>
+            <span>联通合约版</span>
+        </p>
+        <hr>
+        <div>
+            <span >价格</span>
+            <span>&yen:10.00元</span>
+        </div>
+
+
+
+    </div>
+
+
+
+
+<script src="../js/jquery-3.1.0.js"></script>
+<script>
+    !function (window,document,$,undefined){
+        var date = {
+            3:10,
+            6:12,
+            4:12,
+            8:16,
+            5:15,
+            10:18
+        }
+        function taoBao(){
+            var $wp = $('.wp'),
+                $span = $wp.find('p > span'),
+                $price = $wp.find('div>span:eq(1)'),
+                type,mem,val;
+            $span.on('click',function() {
+                var $this = $(this);
+                $this.addClass('on').siblings('.on').removeClass('on');
+                type = $span.filter('.on[date-type]').attr('date-type');
+                mem = $span.filter('.on[date-mem]').attr('date-mem');
+                val = date[type*mem];
+                $price.html('&yen:'+ val + '.00元');
+            })
+        }
+        taoBao();
+
+    }(window,document,jQuery)
+
+
+
+</script>
+</body>
+</html>
