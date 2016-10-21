@@ -18,7 +18,7 @@ $data = Array (
     "email" => $email
 );
 
-$id = $db->insert('wbc6_users', $data);
+$id = $db->insert('reg_login', $data);
 
 sleep(2);
 
