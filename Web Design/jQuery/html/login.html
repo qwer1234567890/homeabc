@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 80px;
+            height:20px;
+            line-height:20px;
+        }
+        div{
+            margin:5px 0;
+        }
+        h1{
+            width:253px;
+            margin:0px auto;
+            margin-top: 100px;
+        }
+        form{
+            position: relative;
+            width:253px;
+            height: 500px;
+            margin:0 auto;
+        }
+        div:last-child{
+            position: absolute;
+            right: 0;
+            top: 50px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1>用户登录</h1>
+<form action="">
+    <div>
+        <label for="">用户名：</label><input type="text">
+    </div>
+    <div>
+        <label for="">密码：</label><input type="password">
+    </div>
+    <div>
+        <input type="submit" value="登录">
+        <input type="reset" value="清空">
+        <input type="button" value="返回" id="rtBtn">
+    </div>
+
+
+
+
+</form>
+<script src="../js/jquery-3.1.0.js"></script>
+<script>
+    !function(window,document,$,undefined){
+        var $rtBtn = $('#rtBtn');
+        $rtBtn.on('click',function(){
+            window.location.href = 'begin.html';
+        });
+    }(window,document,jQuery)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>级联菜单</title>
+    <link rel="stylesheet" href="../css/drop_downMenu.css">
+</head>
+<body>
+<div class="wp">
+    <select name="" id="province">
+        <option value="-1">请选择</option>
+    </select>
+    <label for="province">省</label>
+    <select name="" id="city">
+        <option value="-1">请选择</option>
+    </select>
+    <label for="city">市</label>
+    <select name="" id="county">
+        <option value="-1">请选择</option>
+    </select>
+    <label for="county">区/县</label>
+</div>
+
+
+
+
+
+
+
+
+<script src="../js/date.js" t></script>
+<script src="../js/jquery-3.1.0.js"></script>
+<script>
+    !function(window,document,$,undefined){
+        var currDate = cityDate,
+            provDate;
+        console.log(currDate);
+        $('#province,#city,#county').on('mouseover',function(){
+            var $this = $(this),
+            currVal = $this.val(),
+            id = this.id,//$this.attr('id');
+            map = {
+                province:'city',
+                city:'county'
+            };
+            console.log(map[id]);
+            if (id == 'province'){
+                currDate = provDate = getChildrenByVal (cityDate,currVal)
+            }else if (id == 'city'){
+                currDate = getChildrenByVal (provDate,currVal)
+            }
+
+        })
+        function renderSel (date,selId){
+            var opts = ['<option value="-1">请选择</option>'];
+
+
+        }
+        function getChildrenByVal (date,val) {
+            var children = [];
+            $.each(date,function(cityDate,obj){
+                if(obj.value == val){
+                    children = obj.children;
+                    return false;
+                };
+            });
+            return children;
+        };
+
+
+
+
+
+
+
+
+
+    }(window,document,jQuery)
+</script>
+</body>
+</html>

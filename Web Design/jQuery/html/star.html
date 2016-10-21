@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星级评价</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 108px;
+            height: 22px;
+            border: 1px solid black;
+            background-image: url("../img/star.png");
+        }
+        .star0{
+            background-position: 0 23px;
+        }
+        .star1{
+            background-position: 0 47px;
+        }
+        .star2{
+            background-position: 0 72px;
+        }
+        .star3{
+            background-position: 0 97px;
+        }
+        .star4{
+            background-position: 0 121px;
+        }
+        .star5{
+            background-position: 0 146px;
+        }
+        span{
+            float: left;
+            height: 22px;
+            width: 21px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<p>
+    1<div class="star1"></div>
+    2<div class="star2"></div>
+    3<div class="star3"></div>
+    4<div class="star4"></div>
+    5<div class="star5"></div></p>
+<div class="special star0">
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+
+<script src="../js/jquery-3.1.0.js"></script>
+<script>
+    !function (window,document,$,undefined){
+
+        $('.star0 span').on('click',function(){
+            var $this = $(this);
+            index = $this.index() + 1;
+            $('.special').attr('class','special star' + index);
+        })
+
+   }(window,document,jQuery)
+
+
+
+
+</script>
+</body>
+</html>
