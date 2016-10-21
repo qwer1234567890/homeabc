@@ -1,189 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="707deae0-28d1-47cc-aa07-bf3d3e298f97" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/watcherTasks.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/.idea/网页设计.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/Rotary.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/Rotary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/img/1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/img/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/img/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/Rotary-plug/jquery.rotate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/Accordion_menu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/drop_downMenu.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/imgSlider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/page-plug-in.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/returnTop.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/suggest.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/suning.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/css/za.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/Accordion_menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/drop_downMenu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/jQuery_tab切换.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/page-plug-in.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/practice(1).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/practice(5).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/reg.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/renderImgSider.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/returnTop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/search-suggest.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/start.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/图片轮播插件练习.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/星级评价.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/淘宝计算.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/级联菜单2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/苏宁navigator.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/html/表格练习.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/img-icon1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/img-icon2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/star.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/suning.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/tbicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/淘宝1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/淘宝2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/淘宝3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/淘宝4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/淘宝5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/img/灵动菜单.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/Accordion_menu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/drop_downMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/imgSlider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/jquery-1.8.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/jquery-3.1.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/jquery.page.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/jquery.slides.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/page-plug-in.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/practice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/returnTop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/suggest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/suning.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/js/underscore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/page-Plug/jquery-1.8.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/jQuery/page-Plug/jquery.page.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/Count-Down beta version.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/Count-Down.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/check-box的全选和取消.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/css/hao123.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/css/haogohome.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/css/js练习.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/css/yilong2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/electronic-clock dynamic-title.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/hao123.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/hao到家.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/FormalJs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/dom练习.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/helper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/jquery-3.1.0.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/js练习.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js/underscore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/js练习.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/practice(1).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/practice(3).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/practice(4).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/practice(5).html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/progress bar button.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/pyramid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/render table.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/render table_2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/return Btn.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/25.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/26.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/QQ截图20160802165502.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/baidu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/el_com.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/el_com2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/el_com3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/elongbj.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h22.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h24.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h25.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h26.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h27.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/h9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/15.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/hao123/9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/off.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/on.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/phone.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/图标.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/tutu/桥本爱.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/underscore.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/yilong2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/个人爱好例子.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/九九乘法表.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/兼容所有浏览器的className方法.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/兼容所有浏览器的placeholder.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/动态生成下拉菜单.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/四舍五入函数和抽奖程序.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/数组去重.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/电子时钟优化.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/网页设计/js css练习/面向对象.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="707deae0-28d1-47cc-aa07-bf3d3e298f97" name="Default" comment="" />
     <ignored path="homeabc.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -225,18 +43,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reg.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Web Design/jQuery/php/reg.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -264,6 +72,7 @@
         <option value="$PROJECT_DIR$/网页设计/jQuery/php/sql/reg_login.sql" />
         <option value="$PROJECT_DIR$/网页设计/jQuery/html/login.html" />
         <option value="$PROJECT_DIR$/网页设计/jQuery/html/reg.html" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/php/reg.php" />
       </list>
     </option>
   </component>
@@ -274,10 +83,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="17" />
+    <option name="x" value="-68" />
+    <option name="y" value="25" />
     <option name="width" value="1378" />
-    <option name="height" value="699" />
+    <option name="height" value="694" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -311,6 +120,8 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -385,33 +196,33 @@
       <workItem from="1477028035007" duration="783000" />
       <workItem from="1477037357803" duration="1504000" />
       <workItem from="1477041195876" duration="1676000" />
-      <workItem from="1477043705143" duration="310000" />
+      <workItem from="1477043705143" duration="1044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8105000" />
+    <option name="totallyTimeSpent" value="8839000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="17" width="1378" height="699" extended-state="1" />
+    <frame x="-68" y="25" width="1378" height="694" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -587,15 +398,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/php/reg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/php/reg.php">
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
