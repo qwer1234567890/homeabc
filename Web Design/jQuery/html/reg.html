@@ -29,7 +29,7 @@
 </head>
 <body>
 <h1>用户注册页面</h1>
-<form method="post" action="../php/reg.php">
+<form method="get" action="../php/reg_login_insert.php">
     <hr>
     <div>
         <label for="">账号：<input type="text" name="username"></label>
@@ -47,7 +47,7 @@
     </div>
     <div>
         <label for="">学历：</label>
-        <select name="">
+        <select name="edu">
             <option value="请选择">请选择</option>
             <option value="大专">大专</option>
             <option value="本科">本科</option>
@@ -56,17 +56,17 @@
     </div>
     <div>
         <div>自我评价:</div>
-         <textarea name="" id="" cols="30" rows="10"></textarea>
+         <textarea name="desc" id="" cols="30" rows="10"></textarea>
     </div>
     <div>
         <label for="">爱好：</label>
-        <label>旅游<input type="checkbox" value="旅游"></label>
-        <label>跑步<input type="checkbox" value="跑步"></label>
-        <label>音乐<input type="checkbox" value="音乐"></label>
+        <label>旅游<input type="checkbox" value="旅游" name="hobbies[]"></label>
+        <label>跑步<input type="checkbox" value="跑步" name="hobbies[]"></label>
+        <label>音乐<input type="checkbox" value="音乐" name="hobbies[]"></label>
     </div>
     <div>
         <label for="">照片：</label>
-        <input type="file">
+        <input type="file" name="pic">
     </div>
     <div>
         <input type="submit" value="注册">

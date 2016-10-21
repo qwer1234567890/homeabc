@@ -27,21 +27,27 @@
         div:last-child{
             position: absolute;
             right: 0;
-            top: 50px;
+            top:130px;
         }
-
+        img{
+            margin-left: 80px;
+        }
 
 
     </style>
 </head>
 <body>
 <h1>用户登录</h1>
-<form action="../php/login.php" method="post">
+<form action="../php/reg_login_enter.php" method="post">
     <div>
         <label for="">用户名：</label><input type="text" name="username">
     </div>
     <div>
         <label for="">密码：</label><input type="password" name="password">
+    </div>
+    <div>
+        <label>验证码：</label><input type="text" name="vcode">
+        <img src="../php/vcode/captcha.php" align="absbottom" onclick="this.src='../php/vcode/captcha.php?' + Math.random()">
     </div>
     <div>
         <input type="submit" value="登录">
