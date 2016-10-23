@@ -62,10 +62,20 @@
 <script src="../js/jquery-3.1.0.js"></script>
 <script>
     !function(window,document,$,undefined){
-        var $rtBtn = $('#rtBtn');
+        var $rtBtn = $('#rtBtn'),
+            $form = $('form'),
+            $username = $('[name="username"]');
         $rtBtn.on('click',function(){
             window.location.href = 'begin.html';
         });
+        
+        $form.on('click',function(){
+            if ($username.val() == ''){
+                alert('用户名不能为空');
+                return false;
+            }
+        });
+
     }(window,document,jQuery)
 
 

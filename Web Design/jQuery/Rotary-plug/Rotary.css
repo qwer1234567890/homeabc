@@ -2,3 +2,42 @@
     margin: 0;
     padding: 0;
 }
+.wp{
+    width:500px;
+    height: 500px;
+    background-color: pink;
+    margin:200px auto;
+    border:1px solid black;
+}
+.wp>div{
+    width:400px;
+    height: 400px;
+    background-image: url("img/1.gif");
+    background-repeat: no-repeat;
+    margin:50px auto;
+    position: relative;
+}
+.wp>div>div{
+    width:340px;
+    height:340px;
+    background-image: url("img/2.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-top: -170px;
+    margin-left: -170px;
+}
+#btn{
+    width:190px;
+    height:190px;
+    background: center;
+    background-image: url("img/3.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-top: -95px;
+    margin-left: -95px;
+    cursor: pointer;
+}

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="707deae0-28d1-47cc-aa07-bf3d3e298f97" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.css" afterPath="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.html" afterPath="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web Design/jQuery/html/reg.html" afterPath="$PROJECT_DIR$/Web Design/jQuery/html/reg.html" />
     </list>
     <ignored path="homeabc.iws" />
@@ -25,33 +27,25 @@
     <favorites_list name="homeabc" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="begin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/begin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reg.html" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="reg.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/reg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="345">
+              <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
+      <file leaf-file-name="reg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/reg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1220">
-              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-              <folding />
+            <state relative-caret-position="225">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#41#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,6 +56,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -76,7 +72,16 @@
         <option value="$PROJECT_DIR$/网页设计/jQuery/html/login.html" />
         <option value="$PROJECT_DIR$/网页设计/jQuery/html/reg.html" />
         <option value="$PROJECT_DIR$/Web Design/jQuery/php/reg.php" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/html/login.html" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.css" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.html" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/js/practice.js" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/html/imgslider2.html" />
+        <option value="$PROJECT_DIR$/../wbc/wbc/jQuery/淡入淡出图片轮播.html" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/css/imgslider2.css" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/js/imgslider2.js" />
         <option value="$PROJECT_DIR$/Web Design/jQuery/html/reg.html" />
+        <option value="$PROJECT_DIR$/Web Design/jQuery/js/reg.js" />
       </list>
     </option>
   </component>
@@ -87,10 +92,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="16" />
-    <option name="y" value="33" />
-    <option name="width" value="1378" />
-    <option name="height" value="694" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -99,7 +104,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -126,6 +131,8 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -203,33 +210,57 @@
       <workItem from="1477043705143" duration="1044000" />
       <workItem from="1477047019751" duration="122000" />
       <workItem from="1477047754214" duration="246000" />
+      <workItem from="1477107992071" duration="2070000" />
+      <workItem from="1477113979970" duration="3077000" />
+      <workItem from="1477117132050" duration="3419000" />
+      <workItem from="1477152366955" duration="2174000" />
+      <workItem from="1477155187481" duration="36000" />
+      <workItem from="1477155246849" duration="1217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9207000" />
+    <option name="totallyTimeSpent" value="21200000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="33" width="1378" height="694" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17715959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17715959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -243,31 +274,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/begin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/reg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -275,7 +291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -283,7 +298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -291,7 +305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -314,51 +327,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="585" column="22" selection-start-line="585" selection-start-column="22" selection-end-line="585" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/html/start.html" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/php/gome.sql" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/php/sql/reg_login.sql" />
-    <entry file="file://$PROJECT_DIR$/../wbc/wbc/regLoginDemo/php/reg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-416">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../wbc/wbc/regLoginDemo/php/reg.php" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/php/reg.php" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/html/begin.html" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/html/login.html" />
     <entry file="file://$PROJECT_DIR$/网页设计/jQuery/html/reg.html" />
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/php/reg.php" />
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/begin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/php/reg.php">
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/practice(5).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+        <state relative-caret-position="-155">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/img/2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/jquery.rotate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/img/1.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/Rotary-plug/Rotary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/img/淘宝1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/img/taobao1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/practice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/practice(1).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/renderImgSider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-375">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/imgSlider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wbc/wbc/jQuery/淡入淡出图片轮播.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1804">
+          <caret line="141" column="87" selection-start-line="141" selection-start-column="67" selection-end-line="141" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wbc/wbc/jQuery/淡入淡出图片轮播2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="86" column="37" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/imgslider2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/css/imgslider2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/imgslider2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/jquery.slides.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/js/reg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/reg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web Design/jQuery/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1220">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        <state relative-caret-position="345">
+          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
           <folding />
         </state>
       </provider>
