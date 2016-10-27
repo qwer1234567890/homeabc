@@ -39,7 +39,7 @@ $user = $db -> rawQuery($sql);
 if (empty($user)) {
     echo '登录失败，请<a href="../html/login.html">重试</a>';
 } else {
-    echo '<script>alert("登陆成功啦,少年!");location.href="../html/begin.html";</script>';
+    echo '<script>alert("登陆成功啦,少年!");location.href="../html/main.html";</script>';
 }
 
 ?>

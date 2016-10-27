@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax练习</title>
+</head>
+<body>
+<div id="wp">123</div>
+<button id="btn">点下试试</button>
+
+
+
+<script src="../js/jquery-3.1.0.js"></script>
+<script>
+	!function(window,document,$,undefined) {
+		var a = {7:1,8:2};
+		$('#btn').on('click',function() {
+			$.get('test2.html',a,function(date){
+				$('#wp').html(date);
+			});
+		});
+		//
+	
+	} (window,document,jQuery)
+
+
+
+</script>
+</body>
+</html>

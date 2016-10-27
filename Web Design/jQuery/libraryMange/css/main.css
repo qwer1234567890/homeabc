@@ -1,0 +1,43 @@
+.mb-20{
+	margin-bottom: 20px;
+}
+.mt-5{
+	margin-top: 5px;
+}
+.pr-0{
+	padding-right: 0px;
+}
+.masker-wp{
+	display: none;
+}
+.masker{
+	background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0.6;
+	z-index: 1111;
+}
+.loading{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150px;
+	height: 50px;
+	font-size: 16px;
+	text-indent: 40px;
+	line-height: 50px;
+	text-align: center;
+	margin:-25px 0 0 -75px;
+	background: #fff url(../img/loading-1.gif) left center no-repeat;
+	border-radius: 20px;
+	cursor: pointer;
+	z-index: 1112;
+}
+.submiting{
+	opacity: 0.5;
+	background: url(../img/icon_loading.gif) left center no-repeat;
+
+}

@@ -1,83 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        div{
-            margin: 5px 0;
-        }
-
-    form{
-        position: relative;
-        width:300px;
-        height: 500px;
-        margin:0 auto;
-    }
-    h1{
-        width:300px;
-        margin:0 auto;
-        margin-top: 100px;
-    }
-    div:last-child{
-        position: absolute;
-        right: 65px;
-        top: 375px;
-    }
-
-    </style>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>登录页面</title>
+	<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>用户注册页面</h1>
-<form method="get" action="../php/reg_login_insert.php">
-    <hr>
-    <div>
-        <label for="">账号：<input type="text" name="username"></label>
-    </div>
-    <div>
-        <label for="">密码：<input type="password" name="password"></label>
-    </div>
-    <div>
-        <label for="">邮箱：<input type="type" name="email"></label>
-    </div>
-    <div>
-        <label for="">性别：</label>
-        <label>男<input type="radio" name="gender" value="男"></label>
-        <label>女<input type="radio" name="gender" value="女"></label>
-    </div>
-    <div>
-        <label for="">学历：</label>
-        <select name="edu">
-            <option value="请选择">请选择</option>
-            <option value="大专">大专</option>
-            <option value="本科">本科</option>
-            <option value="硕士">硕士</option>
-        </select>
-    </div>
-    <div>
-        <div>自我评价:</div>
-         <textarea name="desc" id="" cols="30" rows="10"></textarea>
-    </div>
-    <div>
-        <label for="">爱好：</label>
-        <label>旅游<input type="checkbox" value="旅游" name="hobbies[]"></label>
-        <label>跑步<input type="checkbox" value="跑步" name="hobbies[]"></label>
-        <label>音乐<input type="checkbox" value="音乐" name="hobbies[]"></label>
-    </div>
-    <div>
-        <label for="">照片：</label>
-        <input type="file" name="pic">
-    </div>
-    <div>
-        <input type="submit" value="注册">
-        <input type="reset" value="清空">
-        <input type="button" value="返回" id="rtBtn" onclick="alert(a)">
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
     </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="row">
+		<div class="col-md-4">
+
+<form class="form-horizontal" role="form"  method="post" action="../php/reg_login_insert.php">
+   <div class="form-group" id="u_div">
+    <label for="username" class="col-sm-3 control-label">用户名</label>
+    <div class="col-sm-9">
+		<input type="text" class="form-control" placeholder="请输入以字母开头的6~10位数字组合" id="username" name="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+    <div class="col-sm-9">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" name="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="col-sm-3 control-label">性别</label>
+    <div class="col-sm-9">
+      <div class="radio">
+  	    <label>
+  	  		<input type="radio" name="gender" id="inlineRadio1" value="男" checked> 男
+    		</label>
+    		<label>
+    			<input type="radio" name="gender" id="inlineRadio2" value="女"> 女
+    		</label>
+      </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-3 control-label">学历</label>
+    <div class="col-sm-4">
+      <select class="form-control" name="edu">
+  		  <option value="0">请选择</option>
+  		  <option value="大专">大专</option>
+  		  <option value="本科">本科</option>
+  		  <option value="硕士">硕士</option>
+  		  <option value="博士">博士</option>
+		  </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">个人评价</label>
+    <div class="col-sm-9">
+    	<textarea class="form-control" rows="3" name="desc"></textarea>
+    	<div id="desc-control" class="pull-right"><span></span>/<span></span></div>
+    </div>
+
+  </div>
+  <div class="form-group">
+  	<label class="col-sm-3 control-label">爱好</label>
+    <div class="col-sm-9">
+      <div class="checkbox">
+	    <label>
+		  <input type="checkbox" id="inlineCheckbox1" name="hobbies[]" value="爬山"> 爬山
+		</label>
+		<label>
+		  <input type="checkbox" id="inlineCheckbox2" name="hobbies[]" value="旅游"> 旅游
+		</label>
+		<label>
+		  <input type="checkbox" id="inlineCheckbox3" name="hobbies[]" value="游泳"> 游泳
+		</label>
+		<label>
+		  <input type="checkbox" id="inlineCheckbox4" name="hobbies[]" value="跑步"> 跑步
+		</label>
+      </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-3 control-label" for="exampleInputFile">图片</label>
+    <input class="col-sm-9" type="file" id="exampleInputFile" name="pic">
+  </div>
+  <div class="form-group">
+  	<div class="col-sm-7"></div>
+	<input class="btn btn-xs btn-info" type="submit" value="注册">
+  	<input class="btn btn-xs btn-info" type="reset" value="清空">
+  	<input class="btn btn-xs btn-info" type="button" value="返回" id="rtBtn">
 
 
+  </div>
+  	
+  
+  
 </form>
+
+
+		</div>
+		
+	</div>
+
+
+
+</div>
+	
+
 <script src="../js/jquery-3.1.0.js"></script>
+<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../js/reg.js"></script>
+
+ 
 </body>
 </html>

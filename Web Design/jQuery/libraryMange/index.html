@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>图书管理系统</title>
+
+    <link href="bower/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="date/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+  <body>
+    <div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">图书管理系统</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">图书管理</a></li>
+        <li><a href="#">借书还书</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">登录</a></li>
+        <li><a href="#">注册</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="btn-group mb-20">
+  <button type="button" class="btn btn-success" id="btn_addBook">新增图书</button>
+  <button type="button" class="btn btn-info">删除图书</button>
+  <button type="button" class="btn btn-info">XX图书</button>
+</div>
+
+<table class="table table-hover table-bordered table-striped" id="booksTable">
+ <!-- On rows -->
+ <thead>
+    <tr class="info">
+      <th>书名</th>
+      <th>作者</th>
+      <th>出版社</th>
+      <th>定价</th>
+      <th>出版日期</th>
+      <th>类别</th>
+      <th>下架/上架</th>
+      <th>借书状态</th>
+      <th>封面</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+
+
+
+</table>
+
+
+    </div>
+
+<!-- 新增图书 -->
+   <div class="modal fade" id="bookDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增图书</h4>
+      </div>
+      <div class="modal-body">
+      <!-- 图书增加表单 -->
+       <form class="form-horizontal" role="form" id="fm_addBook">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">书名</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="name" placeholder="书名">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">作者</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="author" placeholder="作者">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">出版社</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="publisher" placeholder="出版社">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">定价</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="price" placeholder="定价">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">出版日期(组件)</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="date-piaker" placeholder="日期组件">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">出版日期(DIY无效)</label>
+            <div class="col-sm-2 pr-0">
+                <select class="form-control pr-0" name="p_date" id="p_year">
+                  <option value="0">请选择</option>
+                </select>
+            </div>
+            <div class="col-sm-2 pr-0">
+                <select class="form-control pr-0" name="p_date" id="p_month">
+                  <option value="0">请选择</option>
+                </select>
+            </div>
+            <div class="col-sm-2 pr-0">
+                <select class="form-control pr-0" name="p_date" id="p_day">
+                  <option value="0">请选择</option>
+                </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">类别</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="classify">
+                <option value="请选择">请选择</option>
+                <option value="文学">文学</option>
+                <option value="历史">历史</option>
+                <option value="艺术">艺术</option>
+                <option value="科技">科技</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">状态</label>
+              <div class="col-sm-6">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="status" id="status-up" value="1" checked>上架
+                  </label>
+                  <label>
+                    <input type="radio" name="status" id="status-down" value="0">下架
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-2 control-label">出借状态</label>
+              <div class="col-sm-6">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="borrow_status" id="borrow-up" value="1" checked>出借
+                  </label>
+                  <label>
+                    <input type="radio" name="borrow_status" id="borrow-down" value="0">库存
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">封面</label>
+              <div class="col-sm-6">             
+                <input class="mt-5" type="file" id="bookPic">
+              </div>
+            </div>
+        </form>
+      <!-- 图书增加表单 -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="btn_saveBook">&nbsp保存入库</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 新增图书 -->
+<!-- masker -->
+<div class="masker-wp">
+  <div class="masker"></div>
+  <div class="loading">努力加载中...</div> 
+</div>
+<!-- masker -->
+
+    <script src="bower/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="date/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="date/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="js/pub_date.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
