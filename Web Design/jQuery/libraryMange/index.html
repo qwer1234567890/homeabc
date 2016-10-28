@@ -62,15 +62,25 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="btn-group mb-20">
-  <button type="button" class="btn btn-success" id="btn_addBook">新增图书</button>
-  <button type="button" class="btn btn-info">删除图书</button>
-  <button type="button" class="btn btn-info">XX图书</button>
+  <button type="button" class="btn btn-success" id="btn_bookList">图书列表</button>
+  <button type="button" class="btn btn-info" id="btn_addBook">新增图书</button>
+  <button type="button" class="btn btn-info" id="btn_changeBook" disabled>修改</button>
+  <button type="button" class="btn btn-info" id="btn_delBook" disabled>删除</button>
 </div>
+  <div class="col-lg-4 pull-right">
+    <div class="input-group">
+      <input id="searchIpt" type="text" class="form-control" placeholder="请输入书名">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button" id="btn_searchBook">搜索</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
 
 <table class="table table-hover table-bordered table-striped" id="booksTable">
  <!-- On rows -->
  <thead>
     <tr class="info">
+      <th class="w-30"><input type="checkbox" id="btn_checkAll"></th>
       <th>书名</th>
       <th>作者</th>
       <th>出版社</th>
@@ -137,17 +147,17 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">出版日期(DIY无效)</label>
             <div class="col-sm-2 pr-0">
-                <select class="form-control pr-0" name="p_date" id="p_year">
+                <select class="form-control pr-0" name="p_date2" id="p_year">
                   <option value="0">请选择</option>
                 </select>
             </div>
             <div class="col-sm-2 pr-0">
-                <select class="form-control pr-0" name="p_date" id="p_month">
+                <select class="form-control pr-0" name="p_date2" id="p_month">
                   <option value="0">请选择</option>
                 </select>
             </div>
             <div class="col-sm-2 pr-0">
-                <select class="form-control pr-0" name="p_date" id="p_day">
+                <select class="form-control pr-0" name="p_date2" id="p_day">
                   <option value="0">请选择</option>
                 </select>
             </div>
@@ -156,11 +166,6 @@
             <label class="col-sm-2 control-label">类别</label>
             <div class="col-sm-6">
               <select class="form-control" id="classify">
-                <option value="请选择">请选择</option>
-                <option value="文学">文学</option>
-                <option value="历史">历史</option>
-                <option value="艺术">艺术</option>
-                <option value="科技">科技</option>
               </select>
             </div>
           </div>
@@ -215,6 +220,7 @@
 <!-- masker -->
 
     <script src="bower/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower/bower_components/underscore/underscore-min.js"></script>
     <script src="bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="date/js/bootstrap-datetimepicker.min.js"></script>
     <script src="date/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>

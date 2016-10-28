@@ -29,7 +29,6 @@
 	font-size: 16px;
 	text-indent: 40px;
 	line-height: 50px;
-	text-align: center;
 	margin:-25px 0 0 -75px;
 	background: #fff url(../img/loading-1.gif) left center no-repeat;
 	border-radius: 20px;
@@ -40,4 +39,7 @@
 	opacity: 0.5;
 	background: url(../img/icon_loading.gif) left center no-repeat;
 
+}
+.w-30{
+	width: 30px;
 }
