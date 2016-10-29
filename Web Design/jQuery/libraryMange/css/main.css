@@ -1,6 +1,9 @@
 .mb-20{
 	margin-bottom: 20px;
 }
+.mb-0{
+	margin-bottom: 0px;
+}
 .mt-5{
 	margin-top: 5px;
 }
@@ -41,5 +44,12 @@
 
 }
 .w-30{
+	width: 30px;
+}
+.jump-wp{
+	float: left;
+	margin-top: 20px;
+}
+#jumpIpt{
 	width: 30px;
 }

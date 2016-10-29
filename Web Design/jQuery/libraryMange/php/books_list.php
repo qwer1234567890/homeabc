@@ -36,7 +36,7 @@ sleep(1);
 if ($books) {
 	echo json_encode(Array("success" => true, "total" => $total, "data" => $books, "message" => "请求成功"));
 } else {
-	echo json_encode(Array("success" => true, "total" => 0, "data" => [], "message" => "请求失败"));
+	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
 }
 
 ?>

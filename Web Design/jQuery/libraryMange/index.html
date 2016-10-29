@@ -76,7 +76,7 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 
-<table class="table table-hover table-bordered table-striped" id="booksTable">
+<table class="table table-hover table-bordered table-striped mb-0" id="booksTable">
  <!-- On rows -->
  <thead>
     <tr class="info">
@@ -92,13 +92,20 @@
       <th>封面</th>
     </tr>
   </thead>
-  <tbody>
-    
+  <tbody>   
   </tbody>
-
-
-
 </table>
+<nav>
+  <div class="jump-wp">
+    <input id="jumpIpt" type="text">
+    <button class="" type="button" id="btn_jump">GO</button>
+  </div> 
+
+  <ul class="pagination pull-right" id="pagination">
+    
+  </ul>
+</nav>
+
 
 
     </div>
@@ -187,10 +194,10 @@
               <div class="col-sm-6">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="borrow_status" id="borrow-up" value="1" checked>出借
+                    <input type="radio" name="borrow_status" id="borrow-down" value="0" checked>库存
                   </label>
                   <label>
-                    <input type="radio" name="borrow_status" id="borrow-down" value="0">库存
+                    <input type="radio" name="borrow_status" id="borrow-up" value="1">出借
                   </label>
                 </div>
               </div>
@@ -224,6 +231,8 @@
     <script src="bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="date/js/bootstrap-datetimepicker.min.js"></script>
     <script src="date/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="layui/lay/dest/layui.all.js"></script>  
     <script src="js/pub_date.js"></script>
     <script src="js/main.js"></script>
   </body>

@@ -1,7 +1,7 @@
 !function(window,document,$,undefined){
 
 	var Libaray = {
-			param:{},
+			param:{size:8,page:0,totalpage:0},
 			Cache: {},
 			$loadingWp: $('.masker-wp'),
 			classify_map: [
@@ -13,6 +13,20 @@
 				{value:6,name:'百科类'},
 				{value:7,name:'社会类'}
 			],
+			ajax: function(param) {
+				$.ajax({
+					url: param.url,
+					type: param.type,
+					data: param.data,
+					dataType: param.dataType || 'text',
+					success: function(response){
+						param.success(response);
+					},
+					error: function() {
+						console.log('call:' + param.url + 'failed');
+					}
+				});
+			},
 			init: function(){
 
 				this.initEvent();///////////this指向Libaray对象
@@ -20,23 +34,87 @@
 				this.initDate();
 				this.initYearOption();
 				this.initClassify();
+
 			},
 			initTable: function(){
-				var url = 'php/books_list.php';
+				$.extend(Libaray.param,{query: Libaray.param.query || ''},{page: Libaray.param.page});
 
 				Libaray.$loadingWp.show();
-
-				$.get(url,{query: Libaray.param.query || ''},function(back){
-					
-					if(back.success){
-						Libaray.onRenderTable(back.data);
-//////每次查询后 让Libaray.param.query = '' 否则接下去每次初始化table的时会根据Libaray.param.query的值来渲染表格
-						Libaray.param.query = '';
-					}else{					
-						alert('查询失败,请刷新重试！');	//php返回的success值都是 true 这两行不执行	RenderDable ↓
+				//console.log(Libaray.param);
+				Libaray.ajax({
+					url:'php/books_list.php',
+					data:Libaray.param,
+					dataType:'json',
+					success: function(response){
+				
+						if(response.success){
+							Libaray.onRenderTable(response.data);
+							Libaray.onRenderPage(response);
+	//////每次查询后 让Libaray.param.query = '' 否则接下去每次初始化table的时会根据Libaray.param.query的值来渲染表格
+							//Libaray.param.query = '';
+						}else{					
+							alert('暂无查询结果,请更换查询关键字重试!');
+							$('#searchIpt').val('');
+							Libaray.param.query = '';
+							Libaray.onRenderTable(response.data);
+							Libaray.onRenderPage(response);
+						};
 						Libaray.$loadingWp.hide();
+					}
+				});
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 				$.get(url,Libaray.param,function(response){
+// 					//console.log(response);
+// 					if(response.success){
+// 						Libaray.onRenderTable(response.data);
+// 						Libaray.onRenderPage(response);
+// //////每次查询后 让Libaray.param.query = '' 否则接下去每次初始化table的时会根据Libaray.param.query的值来渲染表格
+// 						//Libaray.param.query = '';
+// 					}else{					
+// 						//alert('查询失败,请刷新重试！');	//php返回的success值都是 true 这两行不执行	RenderDable ↓
+// 						alert('暂无查询结果,请更换查询关键字重试!');
+// 						$('#searchIpt').val('');
+// 						Libaray.param.query = '';
+// 						Libaray.onRenderTable(response.data);
+// 						Libaray.onRenderPage(response);
+// 						Libaray.$loadingWp.hide();
+// 					};
+// 				},'json');
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+			},
+			onRenderPage: function(data){
+				var total = data.total,
+					size = Libaray.param.size,
+					totalpage = Math.ceil(total / size),i,
+					arr = [];
+				Libaray.param.totalpage = totalpage;
+					//console.log(page);
+				if(Libaray.param.page == 0){
+					arr.push('<li class="fist-page disabled"><a href="javascript:;">&laquo;</a></li>',
+						'<li class="prev disabled"><a href="javascript:;">&lsaquo;</a></li>');
+				}else{
+				arr.push('<li class="fist-page"><a href="javascript:;">&laquo;</a></li>',
+						'<li class="prev"><a href="javascript:;">&lsaquo;</a></li>');
+				};
+
+				for(i = 0;i < totalpage; i++){
+
+					if(i == Libaray.param.page){
+						arr.push('<li page="',i,'" class="active"><a href="javascript:;">',i+1,'</a></li>');
+					}else{
+						arr.push('<li page="',i,'"><a href="javascript:;" value ="',i+1,'">',i+1,'</a></li>');
 					};
-				},'json');
+				};
+				if(Libaray.param.page >= Libaray.param.totalpage - 1){
+					arr.push('<li class="next disabled"><a href="javascript:;">&rsaquo;</a></li>',
+						'<li class="last-page disabled"><a href="javascript:;">&raquo;</a></li>');
+				}else{				
+					arr.push('<li class="next"><a href="javascript:;">&rsaquo;</a></li>',
+						'<li class="last-page"><a href="javascript:;">&raquo;</a></li>');
+				};
+
+				$('#pagination').html(arr.join(''));
+				Libaray.param.page = 0;
 			},
 			onRenderTable: function(data) {
 				var arr = [],
@@ -53,13 +131,13 @@
 					},
 					b_status = this.borrow_status,
 					b_statusMap = {1:'出借',0:'库存'}; 
-////////////////////////////////////////////////////////////////////////////////////////////////
-				if(data.length == 0){
-					alert('暂无查询结果,请更换查询关键字重试!');
-					//$('#searchIpt').val('');
-					Libaray.$loadingWp.hide();
-					return;
-				}
+//////////////////////////////////////////////////////////////////////////////////////////////
+				// if(data.length == 0){
+				// 	alert('暂无查询结果,请更换查询关键字重试!');
+				// 	//$('#searchIpt').val('');
+				// 	Libaray.$loadingWp.hide();
+				// 	return;
+				// }
 ///////////////////////////////////////////////////////////////////////////////////////////////
 				$.each(data,function(){
 						
@@ -88,7 +166,6 @@
 				$('#btn_delBook').attr('disabled','disabled');
 				$('#btn_checkAll').prop('checked',false);
 				$('#searchIpt').val('');
-				Libaray.$loadingWp.hide();
 
 			},
 			initEvent: function() {
@@ -104,7 +181,60 @@
 				$('#btn_checkAll').on('click',this.onChooseAll);
 				$('#btn_changeBook').on('click',this.onChangeBook);
 				$('#btn_searchBook').on('click',this.onSearchBook);
-				$('#btn_bookList').on('click',this.initTable);
+				$('#btn_bookList').on('click',this.onBooklist);
+				$('#pagination').on('click','li',this.onPaging);
+				$('#btn_jump').on('click',this.onJumpPage);
+			},
+			onJumpPage: function() {
+				var jumpPage = $('#jumpIpt').val()*1 - 1;
+
+			//////当页面为空 没一个选项的时候/////////////
+				if(isNaN(jumpPage)){
+					alert('请输入一个数字');
+					$('#jumpIpt').val('');
+					return;
+				};
+			
+				if(Libaray.param.totalpage == 0){
+					Libaray.param.page = 0;
+					Libaray.initTable();
+					$('#jumpIpt').val('');
+					return;
+				};
+				
+				//console.log(Libaray.param.totalpage)
+				if(jumpPage < 0){
+					jumpPage = 0;
+				}else if(jumpPage > Libaray.param.totalpage - 1){
+					jumpPage = Libaray.param.totalpage - 1;
+				}
+				Libaray.param.page = jumpPage;
+				Libaray.initTable();
+				$('#jumpIpt').val('');
+			},
+			onBooklist:function(){
+				Libaray.param.query = '';
+				Libaray.initTable();
+			},
+			onPaging: function() {
+				var $this = $(this),
+				currPage = $('#pagination li.active').attr('page');
+				if($this.hasClass('disabled')){
+					return;
+				}else if($this.hasClass('fist-page')){
+					currPage = 0;
+				}else if($this.hasClass('last-page')){
+					currPage = Libaray.param.totalpage - 1;
+				}else if ($this.hasClass('prev')){
+					currPage --;
+				}else if ($this.hasClass('next')) {
+					currPage ++;
+				}else{
+					currPage = $this.attr('page');
+				};
+
+				Libaray.param.page = currPage;
+				Libaray.initTable();
 			},
 			onSearchBook:function() {
 				var searchName = $('#searchIpt').val();
@@ -141,12 +271,16 @@
 					$delBook = $('#btn_delBook'),
 					$btn_changeBook = $('#btn_changeBook'),status;
 
+				if($checkedBox.length == 0){
+					this.checked = false;
+				}
+
 				if(this.checked){
 					status = true;
 					if($checkedBox.length == 1){
-
 						$btn_changeBook.removeAttr('disabled');
 					};
+					
 					$delBook.removeAttr('disabled');
 
 				}else{
@@ -172,7 +306,7 @@
 				//console.log(currBookDate);
 
 				$bookDlg.find('#myModalLabel').val('修改图书').end()
-						.find('#btn_saveBook').html('确定修改').addClass('change').end()
+						.find('#btn_saveBook').html('确定修改').addClass('change').attr('status',1).end()//设置自定义属性做标识
 						.modal('show');
 				$bookDlg.find('#name').val(currBookDate.name);
 				$bookDlg.find('#author').val(currBookDate.author);
@@ -202,19 +336,38 @@
 					ids.push(obj.value);
 				});
 				url = 'php/books_del.php';
-				$.get(url,{ids: ids.join(',')},function(back){
 
-					if (back.success){
-						$('#btn_delBook').attr('disabled','disabled');
-						$('#btn_changeBook').attr('disabled','disabled');
+				Libaray.ajax({
+					url: url,
+					data: {ids: ids.join(',')},
+					dataType: 'json',
+					success: function(response){
+						if (response.success){
+							$('#btn_delBook').attr('disabled','disabled');
+							$('#btn_changeBook').attr('disabled','disabled');
+						}else{
+							alert('删除失败，请刷新重试！');
+						};
 						Libaray.initTable();
-
-					}else{
-						alert('删除失败，请刷新重试！')
+					},
+					error: function() {
+						console.log('call:' + param.url + 'failed');
 					}
+				});
+////////////////////////////////////////////////////////////////////////////////////////////////////
+				// $.get(url,{ids: ids.join(',')},function(response){
 
-				},'json');
+				// 	if (response.success){
+				// 		$('#btn_delBook').attr('disabled','disabled');
+				// 		$('#btn_changeBook').attr('disabled','disabled');
+				// 		Libaray.initTable();
 
+				// 	}else{
+				// 		alert('删除失败，请刷新重试！')
+				// 	};
+
+				// },'json');
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 			},
 			initDate: function() {//////////////////初始化日期组件
 
@@ -231,7 +384,7 @@
 				//var $this = $(this);	
 				Libaray.onResetForm();		
 				$('#bookDlg').find('#myModalLabel').html('新增图书').end()
-							.find('#btn_saveBook').html('保存入库').removeClass('change').end()
+							.find('#btn_saveBook').html('保存入库').removeClass('change').attr('status',2).end()//设置自定义属性做标识
 							.modal('show');
 
 			},
@@ -285,8 +438,15 @@
 				});
 				return arr;
 			},
-			onSaveBook:function(event){
+			onSaveBook:function(){
 				var $this = $(this),data,url;
+//在弹出模态框时根据新增或修改的功能不同给btn添加自定义属性status具有不同的值,此时根据这个值来判断状态//
+//在保存的时候 通过保存前的Libaray.param.query值得到的原来项目的数据渲染table,如果新增则更新table数据
+				if($this.attr('status') == 2){
+
+					Libaray.param.query = '';
+
+				};
 
 				if($this.hasClass('submiting')){///////非常重要的技巧,通过保存按钮是否有相应样式来判断
 					//////////////////函数是否继续执行,能有效防止二货用户狂点保存按钮触发事件冒泡等BUG
@@ -317,18 +477,36 @@
 
 					url = 'php/books_add.php';
 				};
+				Libaray.ajax({
+					url: url,
+					data: data,
+					dataType: 'json',
+					success: function(response){
+						if(response.success){
+							Libaray.onResetForm();
+						}else{
+							alert('保存失败');
+						}
 
-				$.get(url,data,function(back){
-
-					if(back.success){
-						Libaray.onResetForm();
-					}else{
-						alert('保存失败');
+						$('#bookDlg').modal('hide');
+						Libaray.initTable();/////////////////让表格页面局部刷新显示新添加的项
+					},
+					error: function() {
+						console.log('call:' + param.url + 'failed');
 					}
+				});
+///////////////////////////////////////////////////////////////////////////////
+				// $.get(url,data,function(response){
 
-					$('#bookDlg').modal('hide');
-					Libaray.initTable();/////////////////让表格页面局部刷新显示新添加的项
-				},'json');
+				// 	if(response.success){
+				// 		Libaray.onResetForm();
+				// 	}else{
+				// 		alert('保存失败');
+				// 	}
+
+				// 	$('#bookDlg').modal('hide');
+				// 	Libaray.initTable();/////////////////让表格页面局部刷新显示新添加的项
+				// },'json');
 				
 			},
 			onDisbled: function(){
@@ -343,7 +521,7 @@
 				$('#btn_saveBook').removeClass('submiting');
 			}
 	}
-
+	
 	Libaray.init();
 
 }(window,document,jQuery)
