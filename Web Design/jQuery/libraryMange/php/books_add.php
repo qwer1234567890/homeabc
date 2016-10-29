@@ -30,7 +30,7 @@
 
     $id = $db->insert ('books', $data);
 
-    sleep(1);
+    sleep(0);
 
     if ($id > 0) {
         echo json_encode(array("success" => true, "message" => "图书保存成功"));

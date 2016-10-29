@@ -3,6 +3,7 @@
 	var Libaray = {
 			param:{size:8,page:0,totalpage:0},
 			Cache: {},
+			totalNumbers:{numbers:0},
 			$loadingWp: $('.masker-wp'),
 			classify_map: [
 				{value:1,name:'历史类'},
@@ -53,7 +54,7 @@
 	//////每次查询后 让Libaray.param.query = '' 否则接下去每次初始化table的时会根据Libaray.param.query的值来渲染表格
 							//Libaray.param.query = '';
 						}else{					
-							alert('暂无查询结果,请更换查询关键字重试!');
+							//alert('暂无查询结果,请更换查询关键字重试!');
 							$('#searchIpt').val('');
 							Libaray.param.query = '';
 							Libaray.onRenderTable(response.data);
@@ -87,6 +88,7 @@
 					size = Libaray.param.size,
 					totalpage = Math.ceil(total / size),i,
 					arr = [];
+				Libaray.totalNumbers.numbers = total;
 				Libaray.param.totalpage = totalpage;
 					//console.log(page);
 				if(Libaray.param.page == 0){
@@ -102,7 +104,7 @@
 					if(i == Libaray.param.page){
 						arr.push('<li page="',i,'" class="active"><a href="javascript:;">',i+1,'</a></li>');
 					}else{
-						arr.push('<li page="',i,'"><a href="javascript:;" value ="',i+1,'">',i+1,'</a></li>');
+						arr.push('<li page="',i,'"><a href="javascript:;">',i+1,'</a></li>');
 					};
 				};
 				if(Libaray.param.page >= Libaray.param.totalpage - 1){
@@ -324,18 +326,27 @@
 
 			},
 			onDeleteBook: function () {
-				var $checkedBox,url,
-					ids = [];
+				var $checkedBox,url,currPage,
+					ids = [],len;
 
 				if(!confirm('确定删除吗？')){
 					return;
-				}
+				};
+
+				currPage = $('#pagination li.active').attr('page')*1;/////将string转化成number
 				Libaray.$loadingWp.show()
 				$checkedBox = $('#booksTable tbody input[type="checkbox"]:checked');
 				$checkedBox.each(function(i,obj){
 					ids.push(obj.value);
 				});
+				len = ids.length;
 				url = 'php/books_del.php';
+///////////////删除后页面最多页数////////////////////////////////////////////////////////////////
+				MaxPage = Math.ceil((Libaray.totalNumbers.numbers - len) / Libaray.param.size);
+				(currPage + 1) < MaxPage? currPage = currPage : currPage = (MaxPage - 1);
+				if (currPage < 0) {
+					currPage = 0;
+				};
 
 				Libaray.ajax({
 					url: url,
@@ -348,6 +359,8 @@
 						}else{
 							alert('删除失败，请刷新重试！');
 						};
+
+						Libaray.param.page = currPage ;
 						Libaray.initTable();
 					},
 					error: function() {
@@ -446,6 +459,9 @@
 
 					Libaray.param.query = '';
 
+				}else{
+//////修改后保证页码和之前一样/////////////////////////////////////////////
+					Libaray.param.page = $('#pagination li.active').attr('page');
 				};
 
 				if($this.hasClass('submiting')){///////非常重要的技巧,通过保存按钮是否有相应样式来判断
