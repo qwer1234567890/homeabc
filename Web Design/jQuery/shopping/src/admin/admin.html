@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电商平台</title>
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/store.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">电商平台</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">商品管理</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">登录</a></li>
+        <li><a href="#">注册</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="container">
+<div class="row">
+
+<div class="btn-group mb-20">
+  <button type="button" class="btn btn-success" id="btn_goodsList">商品列表</button>
+  <button type="button" class="btn btn-info" id="btn_addGoods">新增商品</button>
+  <button type="button" class="btn btn-info" id="btn_changeGoods" disabled>修改商品</button>
+  <button type="button" class="btn btn-info" id="btn_delGoods" disabled>删除商品</button>
+  <button type="button" class="btn btn-info" id="btn_shelves" disabled>上架</button>
+  <button type="button" class="btn btn-info" id="btn_offShelves" disabled>下架</button>
+</div>
+<div class="col-lg-4 pull-right">
+  <div class="input-group">
+    <input id="searchIpt" type="text" class="form-control" placeholder="请输入商品名称">
+    <span class="input-group-btn">
+      <button class="btn btn-success" type="button" id="btn_searchGoods">搜索</button>
+    </span>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+
+<table class="table table-hover table-bordered table-striped mb-0" id="goodsTable">
+ <!-- On rows -->
+ <thead>
+    <tr class="info">
+      <th class="w-30"><input type="checkbox" id="btn_checkAll"></th>
+      <th>序列</th>
+      <th>商品名称</th>
+      <th>价格</th>
+      <th>介绍</th>
+      <th>出版日期</th>
+      <th>类别</th>
+      <th>商品状态</th>
+      <th>封面</th>
+    </tr>
+  </thead>
+  <tbody>   
+  </tbody>
+</table>
+<nav>
+  <div class="jump-wp">
+    <input id="jumpIpt" type="text">
+    <button class="" type="button" id="btn_jump">GO</button>
+  </div> 
+
+  <ul class="pagination pull-right" id="pagination">
+    
+  </ul>
+</nav>
+
+
+
+</div>
+</div>
+<!-- 新增图书 -->
+   <div class="modal fade" id="goodsDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增商品</h4>
+      </div>
+      <div class="modal-body">
+      <!-- 图书增加表单 -->
+       <form class="form-horizontal" role="form" id="fm_addGoods">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">商品名称</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="title" placeholder="商品名称">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">定价</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="price" placeholder="定价">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">商品介绍</label>
+            <div class="col-sm-6">
+              <textarea class="form-control" rows="3" id="details"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">库存</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="amount" placeholder="请填写商品数量">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">类别</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="classify">
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">状态</label>
+            <div class="col-sm-6">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="status" id="status-up" value="1" checked>上架
+                </label>
+                <label>
+                  <input type="radio" name="status" id="status-down" value="0">下架
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">封面</label>
+            <div class="col-sm-6">             
+              <input class="mt-5" type="file" id="bookPic">
+            </div>
+          </div>
+        </form>
+      <!-- 图书增加表单 -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="btn_saveGoods">&nbsp保存入库</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 新增图书 -->
+<!-- masker -->
+<div class="masker-wp">
+  <div class="masker"></div>
+  <div class="loading">努力加载中...</div> 
+</div>
+
+
+
+
+
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src='../../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src="../../bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../bower_components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../../bower_components/layer/build/layer.js"></script>
+<script src="../js/mng.js"></script>
+</body>
+</html>

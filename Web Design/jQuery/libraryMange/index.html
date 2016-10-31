@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
 
   </head>
-  <body>
+  <body ng-app="Library_mng" ng-controller="mngController">
     <div class="container">
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
@@ -67,14 +67,14 @@
   <button type="button" class="btn btn-info" id="btn_changeBook" disabled>修改</button>
   <button type="button" class="btn btn-info" id="btn_delBook" disabled>删除</button>
 </div>
-  <div class="col-lg-4 pull-right">
-    <div class="input-group">
-      <input id="searchIpt" type="text" class="form-control" placeholder="请输入书名">
-      <span class="input-group-btn">
-        <button class="btn btn-success" type="button" id="btn_searchBook">搜索</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+    <div class="col-lg-4 pull-right">
+      <div class="input-group">
+        <input id="searchIpt" type="text" class="form-control" placeholder="请输入书名">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button" id="btn_searchBook">搜索</button>
+        </span>
+      </div>
+    </div>
 
 <table class="table table-hover table-bordered table-striped mb-0" id="booksTable">
  <!-- On rows -->
@@ -106,9 +106,7 @@
   </ul>
 </nav>
 
-
-
-    </div>
+</div>
 
 <!-- 新增图书 -->
    <div class="modal fade" id="bookDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -231,9 +229,11 @@
     <script src="bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="date/js/bootstrap-datetimepicker.min.js"></script>
     <script src="date/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-    <script src="layui/layui.js"></script>
-    <script src="layui/lay/dest/layui.all.js"></script>  
+    <script src="bower/bower_components/angular/angular.min.js"></script>
+    <script src="bower/bower_components/angular/angular-route.min.js"></script>
+    <script src="js/Library_ng.js"></script>
+    <script src="bower/bower_components/layer/build/layer.js"></script>
     <script src="js/pub_date.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/man.js"></script>
   </body>
 </html>

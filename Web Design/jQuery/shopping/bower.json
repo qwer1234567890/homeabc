@@ -19,6 +19,7 @@
     "underscore": "^1.8.3",
     "bootstrap": "^3.3.7",
     "angular": "angularjs#^1.2.32",
-    "layer": "*"
+    "layer": "*",
+    "smalot-bootstrap-datetimepicker": "^2.3.11"
   }
 }

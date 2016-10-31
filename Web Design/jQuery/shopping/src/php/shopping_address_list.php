@@ -16,25 +16,25 @@ if (!isset($pageSize)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from books where 1=1";
-$sql2 = "select count(*) as count from books where 1=1";
+$sql = "select * from address where 1=1";
+$sql2 = "select count(*) as count from address where 1=1";
 
 if (isset($query) && $query != '') {
-    $sql .= " and name like '%".$query."%' ";
-    $sql2 .= " and name like '%".$query."%' ";
+    $sql .= " and title like '%".$query."%' ";
+    $sql2 .= " and title like '%".$query."%' ";
 }
 
 $sql .= " order by id desc limit $start, $pageSize";
 
-$books = $db -> rawQuery($sql);
+$address = $db -> rawQuery($sql);
 
-$books_count = $db -> rawQuery($sql2);
-$total = $books_count[0]['count'];
+$address_count = $db -> rawQuery($sql2);
+$total = $address_count[0]['count'];
 
-sleep(1);
+sleep(2);
 
-if ($books) {
-	echo json_encode(Array("success" => true, "total" => $total, "data" => $books, "message" => "请求成功"));
+if ($address) {
+	echo json_encode(Array("success" => true, "total" => $total, "data" => $address, "message" => "请求成功"));
 } else {
 	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
 }

@@ -3,34 +3,30 @@
     require_once ('util/db.php');
 
     $id = $_GET['id'];
-    $name = $_GET["name"];
-    $author = $_GET["author"];
-    $publisher = $_GET["publisher"];
+    $title = $_GET["title"];
     $price = $_GET["price"];
-    $p_date = $_GET["p_date"];
+    $details = $_GET["details"];
+    $amount = $_GET["amount"];
     $classify = $_GET["classify"];
     $status = $_GET["status"];
-	$borrow_status = $_GET["borrow_status"];
 
     // $now = date("Y-m-d h:i:s");
 
     $data = Array (
     	"id" => $id,
-        "name" => $name,
-        "author" => $author,
-        "publisher" => $publisher,
-        "p_date" => $p_date,
+        "title" => $title,
         "price" => $price,
+        "details" => $details,
+        "amount" => $amount,
         "classify" => $classify,
-        "status" => $status,
-        "borrow_status" => $borrow_status
+        "status" => $status
     );
 
     $db->where ('id', $id);
 
-    sleep(0);
+    sleep(1);
 
-    if ($db->update ('books', $data)) {
+    if ($db->update ('goods', $data)) {
         echo json_encode(array("success" => true, "message" => "修改成功"));
     } else {
         echo json_encode(array("success" => false, "message" => "修改失败"));
