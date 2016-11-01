@@ -7,7 +7,7 @@
 
     $sql = "update goods set status=$status where id in ($ids)";
 
-    sleep(2);
+    sleep(0);
 
     $r = $db->execSQL($sql);
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 80px;
+            height:20px;
+            line-height:20px;
+        }
+        div{
+            margin:5px 0;
+        }
+        h1{
+            width:253px;
+            margin:0px auto;
+            margin-top: 100px;
+        }
+        form{
+            position: relative;
+            width:253px;
+            height: 500px;
+            margin:0 auto;
+        }
+        div:last-child{
+            position: absolute;
+            right: 0;
+            top:130px;
+        }
+        img{
+            margin-left: 80px;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>用户登录</h1>
+<form action="../php/reg_login_enter.php" method="post">
+    <div>
+        <label for="">用户名：</label><input type="text" name="username">
+    </div>
+    <div>
+        <label for="">密码：</label><input type="password" name="password">
+    </div>
+    <div>
+        <label>验证码：</label><input type="text" name="vcode">
+        <img src="../php/vcode/captcha.php" align="absbottom" onclick="this.src='../php/vcode/captcha.php?' + Math.random()">
+    </div>
+    <div>
+        <input type="submit" value="登录">
+        <input type="reset" value="清空">
+        <input type="button" value="返回" id="rtBtn">
+    </div>
+
+
+
+
+</form>
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    !function(window,document,$,undefined){
+        var $rtBtn = $('#rtBtn'),
+            $form = $('form'),
+            $username = $('[name="username"]');
+        $rtBtn.on('click',function(){
+            window.location.href = 'begin.html';
+        });
+        
+        $form.on('submit',function(){
+            if ($username.val() == ''){
+                alert('用户名不能为空');
+                return false;
+            }
+        });
+
+    }(window,document,jQuery)
+
+
+</script>
+</body>
+</html>

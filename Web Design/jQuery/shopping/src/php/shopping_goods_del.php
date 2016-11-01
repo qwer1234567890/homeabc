@@ -6,7 +6,7 @@
 
 	$sql = "delete from goods where id in ($ids)";
 
-    sleep(1);
+    sleep(0);
 
     $r = $db->doDelete($sql);
 

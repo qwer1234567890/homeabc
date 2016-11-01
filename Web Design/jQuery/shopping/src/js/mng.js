@@ -1,18 +1,11 @@
 !function(window,document,$,undefined){
+	
 	var Store = {
 		$loadingWp: $('.masker-wp'),
-		param:{size:3,page:0,totalpage:0},
-		Cache: {},
+		param:{size:2,page:0,totalpage:0},
+		Cache: {},                       //////渲染商品时得到的商品信息缓存,用于在修改时得到商品的原有信息
 		totalNumbers:{numbers:0},
-		classify_map: [
-			{value:1,name:'电子产品'},
-			{value:2,name:'服装'},
-			{value:3,name:'生活用品'},
-			{value:4,name:'奢侈品'},
-			{value:5,name:'家具'},
-			{value:6,name:'汽车'},
-			{value:7,name:'家电'}
-		],
+		classify_Cache: {},              ////////////类别缓存,作为渲染商品时的map
 		ajax: function(param) {
 				$.ajax({
 					url: param.url,
@@ -29,38 +22,49 @@
 			},
 		init:function(){
 			this.initEvent();
-			this.initClassify();
 			this.initTable();
-		},
-		initClassify: function() {
-			this.onRenderOpt($('#classify'),this.classify_map);
 		},
 		initTable: function(){
 
-			$.extend(Store.param,{query: Store.param.query || ''},{page: Store.param.page});
+			var url = '../php/shopping_classify_list.php',
+				url2 = '../php/shopping_goods_list.php';
+
 			Store.$loadingWp.show();
 
-			Store.ajax({
-				url:'../php/shopping_goods_list.php',
-				data:Store.param,
-				dataType:'json',
-				success: function(response){
-			
-					if(response.success){
-						Store.onRenderTable(response.data);
-						Store.onRenderPage(response);
-//////每次查询后 让Store.param.query = '' 否则接下去每次初始化table的时会根据Store.param.query的值来渲染表格
-						//Store.param.query = '';
-					}else{					
+			$.when($.getJSON(url),$.getJSON(url2,Store.param)).done(function(classifyList,tableList) {
+				Store.$loadingWp.hide();
+
+				if(classifyList[0].success){
+
+					Store.onRenderClassify($('#classify'),classifyList[0].data);
+					
+					$.extend(Store.param,{query: Store.param.query || ''},{page: Store.param.page});
+					if(tableList[0].success){
+
+						Store.onRenderTable(tableList[0].data);
+						Store.onRenderPage(tableList[0]);
+					}else{	
+
 						layer.msg('暂无查询结果,请更换查询关键字重试!');
 						$('#searchIpt').val('');
 						Store.param.query = '';
-						Store.onRenderTable(response.data);
-						Store.onRenderPage(response);
+						Store.onRenderTable(tableList[0].data);
+						Store.onRenderPage(tableList[0]);
 					};
-					Store.$loadingWp.hide();
-				}
+				}else{					
+						layer.msg('渲染分类失败,数据库没有分类数据!');
+				};
+
 			});
+		},
+		onRenderClassify: function(obj,data) {////////根据数据data给对象obj(obj为jQuery对象)渲染option
+
+			var arr = ['<option value="1">请选择</option>'];
+			$.each(data,function(){
+				arr.push('<option value=',this.id,'>',this.name,'</option>');
+				Store.classify_Cache[this.id] = this.name;
+			});
+			obj.html(arr.join(''));
 		},
 		onRenderPage: function(data){
 				var total = data.total,
@@ -99,42 +103,32 @@
 		},
 		onRenderTable: function(data){
 			var arr = [],
-				$tbody = $('#goodsTable tbody'),
-				classify_tablemap = {
-					0: '未分类',
-					1: '电子产品',
-					2: '服装',
-					3: '生活用品',
-					4: '奢侈品',
-					5: '家具',
-					6: '汽车',
-					7: '家电'
-				};
-
+				$tbody = $('#goodsTable tbody');
+				
 				$.each(data,function(i,obj){
-						
 					arr.push('<tr>',
 								'<td><input type="checkbox" value="',obj.id,'"></td>',
 								'<td>',i + 1,'</td>',
-								'<td>',obj.title,'</td>',
-								'<td>',obj.price,'</td>',
-								'<td>',obj.details,'</td>',
-								'<td>￥',obj.amount,'</td>',
-								'<td>',classify_tablemap[obj.classify],'</td>',
+								'<td title="',obj.title,'">',obj.title,'</td>',
+								'<td>￥',obj.price,'</td>',
+								'<td title="',obj.details,'">',obj.details,'</td>',
+								'<td>',obj.amount,'</td>',
+								'<td>',Store.classify_Cache[obj.classify],'</td>',
 								'<td>',obj.status?'上架' :'下架','</td>',
-								'<td>',obj.bookPic,'</td>',
+								'<td>',obj.goodsPic,'</td>',
 							'</tr>');
-
-					Store.Cache[this.id] = this;////让this中每个id的值成为这个对象的父对象的属性;
+					Store.Cache[obj.id] = this;////让obj中每个id的值成为这个对象的父对象的属性;
 										      /////使每一条图书信息都有他相应的的ID值作为它的唯一标识
 
 				});
 				//console.log(data);
-				//console.log(Store.Cache); /////得到了一个新对象具有
+				//console.log(Store.Cache); 
 				
 				$tbody.html(arr.join(''));
-				$('#btn_changeBook').attr('disabled','disabled');
-				$('#btn_delBook').attr('disabled','disabled');
+				$('#btn_changeGoods').attr('disabled','disabled');
+				$('#btn_delGoods').attr('disabled','disabled');
+				$('#btn_shelves').attr('disabled','disabled');
+				$('#btn_offShelves').attr('disabled','disabled');
 				$('#btn_checkAll').prop('checked',false);
 				$('#searchIpt').val('');
 		},
@@ -149,6 +143,38 @@
 			$('#btn_goodsList').on('click',this.onGoodslist);
 			$('#pagination').on('click','li',this.onPaging);
 			$('#btn_jump').on('click',this.onJumpPage);
+			$('#btn_shelves,#btn_offShelves').on('click',this.onShelves);
+		},
+		onShelves: function() {
+			var $checkedBox,url,
+				$this = $(this),
+				currStatus = $this.val(),
+				ids = [];	
+			currPage = $('#pagination li.active').attr('page')*1;
+			$checkedBox = $('#goodsTable tbody input[type="checkbox"]:checked');
+			$checkedBox.each(function(i,obj){
+				ids.push(obj.value);
+			});
+			
+			url = '../php/shopping_goods_update_status.php';
+
+			Store.ajax({
+				url: url,
+				data: {ids: ids.join(','),status: currStatus},
+				dataType: 'json',
+				success: function(response){
+					if (response.success){
+						$('#btn_delGoods').attr('disabled','disabled');
+						$('#btn_changeGoods').attr('disabled','disabled');
+						$('#btn_shelves').attr('disabled','disabled');
+						$('#btn_offShelves').attr('disabled','disabled');
+					}else{
+						layer.msg('当前状态未做任何改变!');
+					};
+					Store.param.page = currPage;
+					Store.initTable();
+				}
+			});
 		},
 		onJumpPage: function() {
 			var jumpPage = $('#jumpIpt').val()*1 - 1;
@@ -224,7 +250,7 @@
 				$goodsDlg.find('#amount').val(currGoodsData.amount);
 				$goodsDlg.find('#classify').val(currGoodsData.classify);
 				$goodsDlg.find('[name="status"][value="'+ currGoodsData.status +'"]').trigger('click');
-				$goodsDlg.find('#bookPic').val();
+				$goodsDlg.find('#goodsPic').val();
 				
 		},
 		onDeleteGoods: function() {
@@ -236,7 +262,6 @@
 			};
 
 			currPage = $('#pagination li.active').attr('page')*1;/////将string转化成number
-			Store.$loadingWp.show()
 			$checkedBox = $('#goodsTable tbody input[type="checkbox"]:checked');
 			$checkedBox.each(function(i,obj){
 				ids.push(obj.value);
@@ -258,6 +283,8 @@
 					if (response.success){
 						$('#btn_delGoods').attr('disabled','disabled');
 						$('#btn_changeGoods').attr('disabled','disabled');
+						$('#btn_shelves').attr('disabled','disabled');
+						$('#btn_offShelves').attr('disabled','disabled');
 					}else{
 						layer.msg('删除失败,请刷新重试!');
 					};
@@ -271,15 +298,19 @@
 			var len = $('#goodsTable tbody input[type="checkbox"]:checked').length,
 					lens = $('#goodsTable tbody input[type="checkbox"]').length,
 					$btn_checkAll = $('#btn_checkAll'),
-					$delBook = $('#btn_delGoods'),
-					$btn_changeBook = $('#btn_changeGoods');
+					$delGoods = $('#btn_delGoods'),
+					$btn_changeGoods = $('#btn_changeGoods');
+					$btn_shelves = $('#btn_shelves');
+					$btn_offShelves = $('#btn_offShelves');
 				
 			if(len > 0){
-				$delBook.removeAttr('disabled');
+				$delGoods.removeAttr('disabled');
+				$btn_shelves.removeAttr('disabled');
+				$btn_offShelves.removeAttr('disabled');
 				if(len == 1){
-					$btn_changeBook.removeAttr('disabled');				
+					$btn_changeGoods.removeAttr('disabled');				
 				}else{
-					$btn_changeBook.attr('disabled','disabled');
+					$btn_changeGoods.attr('disabled','disabled');
 				};
 				if(len == lens){
 					$btn_checkAll.prop('checked',true);
@@ -287,15 +318,19 @@
 					$btn_checkAll.prop('checked',false);
 				}
 			}else{					
-				$delBook.attr('disabled','disabled');
-				$btn_changeBook.attr('disabled','disabled');
+				$delGoods.attr('disabled','disabled');
+				$btn_shelves.attr('disabled','disabled');
+				$btn_offShelves.attr('disabled','disabled');
+				$btn_changeGoods.attr('disabled','disabled');
 				$btn_checkAll.prop('checked',false);				
 			}
 		},
 		onChooseAll: function() {
 			var $checkedBox = $('#goodsTable tbody input[type="checkbox"]'),
-				$delBook = $('#btn_delGoods'),
-				$btn_changeBook = $('#btn_changeGoods'),status;
+				$delGoods = $('#btn_delGoods'),
+				$btn_shelves = $('#btn_shelves'),
+				$btn_offShelves = $('#btn_offShelves'),
+				$btn_changeGoods = $('#btn_changeGoods'),status;
 
 			if($checkedBox.length == 0){
 				this.checked = false;
@@ -304,16 +339,21 @@
 			if(this.checked){
 				status = true;
 				if($checkedBox.length == 1){
-					$btn_changeBook.removeAttr('disabled');
+					$btn_changeGoods.removeAttr('disabled');
 				};
 				
-				$delBook.removeAttr('disabled');
+				$delGoods.removeAttr('disabled');
+				$btn_shelves.removeAttr('disabled');
+				$btn_offShelves.removeAttr('disabled');
 
 			}else{
 
 				status = false;
-				$btn_changeBook.attr('disabled','disabled');
-				$delBook.attr('disabled','disabled');
+				$btn_changeGoods.attr('disabled','disabled');
+				$delGoods.attr('disabled','disabled');
+				$btn_shelves.attr('disabled','disabled');
+				$btn_offShelves.attr('disabled','disabled');
+
 
 			};
 			$checkedBox.each(function (i,obj) {
@@ -350,7 +390,7 @@
 					//classify: $('#classify').find('option:selected').val(),
 					classify: $('#classify').val(),
 					status: $('[name="status"]:checked').val(),
-					pic: $('#bookPic').val()
+					pic: $('#goodsPic').val()
 				};
 
 			$this.addClass('submiting');
@@ -383,14 +423,6 @@
 		onResetForm: function(){
 				$('#fm_addGoods').trigger('reset');
 				$('#btn_saveGoods').removeClass('submiting');
-		},
-		onRenderOpt: function(obj,data) {////////根据数据data给对象obj(obj为jQuery对象)渲染option
-
-			var arr = ['<option value="0">请选择</option>'];
-			$.each(data,function(){
-				arr.push('<option value=',this.value,'>',this.name,'</option>')
-			});
-			obj.html(arr.join(''));
 		}
 
 	};

@@ -68,8 +68,8 @@
   <button type="button" class="btn btn-info" id="btn_addGoods">新增商品</button>
   <button type="button" class="btn btn-info" id="btn_changeGoods" disabled>修改商品</button>
   <button type="button" class="btn btn-info" id="btn_delGoods" disabled>删除商品</button>
-  <button type="button" class="btn btn-info" id="btn_shelves" disabled>上架</button>
-  <button type="button" class="btn btn-info" id="btn_offShelves" disabled>下架</button>
+  <button type="button" class="btn btn-info" id="btn_shelves" value="1" disabled>上架</button>
+  <button type="button" class="btn btn-info" id="btn_offShelves" value="0" disabled>下架</button>
 </div>
 <div class="col-lg-4 pull-right">
   <div class="input-group">
@@ -85,13 +85,13 @@
  <thead>
     <tr class="info">
       <th class="w-30"><input type="checkbox" id="btn_checkAll"></th>
-      <th>序列</th>
-      <th>商品名称</th>
-      <th>价格</th>
-      <th>介绍</th>
-      <th>出版日期</th>
-      <th>类别</th>
-      <th>商品状态</th>
+      <th class="w-50">序列</th>
+      <th class="w-200">商品名称</th>
+      <th class="w-90">价格</th>
+      <th class="w-320">介绍</th>
+      <th class="w-100">库存</th>
+      <th class="w-100">类别</th>
+      <th class="w-90">商品状态</th>
       <th>封面</th>
     </tr>
   </thead>
@@ -173,7 +173,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">封面</label>
             <div class="col-sm-6">             
-              <input class="mt-5" type="file" id="bookPic">
+              <input class="mt-5" type="file" id="goodsPic">
             </div>
           </div>
         </form>

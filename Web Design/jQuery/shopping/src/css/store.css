@@ -46,6 +46,27 @@
 .w-30{
 	width: 30px;
 }
+.w-50{
+	width: 50px;
+}
+.w-60{
+	width: 60px;
+}
+.w-90{
+	width: 90px;
+}
+.w-100{
+	width: 100px;
+}
+.w-200{
+	width:200px;
+}
+.w-320{
+	width: 320px;
+}
+.center{
+	text-align: center;
+}
 .jump-wp{
 	float: left;
 	margin-top: 20px;

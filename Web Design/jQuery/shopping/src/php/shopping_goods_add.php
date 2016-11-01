@@ -25,7 +25,7 @@
 
     $id = $db->insert ('goods', $data);
 
-    sleep(2);
+    sleep(1);
 
     if ($id > 0) {
         echo json_encode(array("success" => true, "message" => "保存成功"));
