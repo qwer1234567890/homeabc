@@ -6,7 +6,7 @@
 
 	$sql = "delete from classify where id in ($ids)";
 
-    sleep(2);
+    sleep(0);
 
     $r = $db->doDelete($sql);
 

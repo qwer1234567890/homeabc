@@ -2,14 +2,39 @@
  * Created by Mr.W on 2016/10/23.
  */
 !function(window,document,$,undefined){
+    var user = {
+        init: function() {
+            this.initEvent();
+            this.initDate();
+        },
+        initEvent: function(){
+            $('#reg').on('click',this.onReg);
+        },
+        onReg: function(){
+            $('#regDlg').modal('show');
+        },
+        initDate: function() {//////////////////初始化日期组件
+
+            $('#date-piaker').datetimepicker({
+                todayBtn:  1,
+                format: 'yyyy-mm-dd',
+                autoclose: 1,
+                minView: 2,
+                language:'zh-CN'
+            });
+
+        }
+
+    };
+    user.init();
    
-    function jump (){
-        var $rtBtn = $('#rtBtn');
-        $rtBtn.on('click',function(){
-            window.location.href = 'begin.html';
-        });
-    }
-    jump ();
+    // function jump (){
+    //     var $rtBtn = $('#rtBtn');
+    //     $rtBtn.on('click',function(){
+    //         window.location.href = 'begin.html';
+    //     });
+    // }
+    // jump ();
 
     function form_check(){
         var $form = $('form');
@@ -37,7 +62,7 @@
             $u_div = $('#u_div'),
             user_check = /^[a-zA-z][a-zA-Z0-9_]{0,9}$/,
             user_check2 = /^[A-Za-z0-9]+$/,len;
-            console.log($u_div[0])
+            //console.log($u_div[0])
         $uname.on('keydown',function(){
         len = $uname.val().length;
         });

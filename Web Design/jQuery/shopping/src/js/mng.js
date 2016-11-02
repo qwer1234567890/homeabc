@@ -1,8 +1,8 @@
 !function(window,document,$,undefined){
 	
 	var Store = {
-		$loadingWp: $('.masker-wp'),
-		param:{size:2,page:0,totalpage:0},
+		$loadingWp: $('#masker-wp'),
+		param:{size:8,page:0,totalpage:0},
 		Cache: {},                       //////渲染商品时得到的商品信息缓存,用于在修改时得到商品的原有信息
 		totalNumbers:{numbers:0},
 		classify_Cache: {},              ////////////类别缓存,作为渲染商品时的map
@@ -38,19 +38,15 @@
 
 					Store.onRenderClassify($('#classify'),classifyList[0].data);
 					
-					$.extend(Store.param,{query: Store.param.query || ''},{page: Store.param.page});
-					if(tableList[0].success){
-
-						Store.onRenderTable(tableList[0].data);
-						Store.onRenderPage(tableList[0]);
-					}else{	
+					//$.extend(Store.param,{query: Store.param.query || ''},{page: Store.param.page});
+					if(!tableList[0].success){	
 
 						layer.msg('暂无查询结果,请更换查询关键字重试!');
 						$('#searchIpt').val('');
 						Store.param.query = '';
-						Store.onRenderTable(tableList[0].data);
-						Store.onRenderPage(tableList[0]);
 					};
+					Store.onRenderTable(tableList[0].data);
+					Store.onRenderPage(tableList[0]);
 				}else{					
 						layer.msg('渲染分类失败,数据库没有分类数据!');
 				};
@@ -111,7 +107,7 @@
 								'<td>',i + 1,'</td>',
 								'<td title="',obj.title,'">',obj.title,'</td>',
 								'<td>￥',obj.price,'</td>',
-								'<td title="',obj.details,'">',obj.details,'</td>',
+								'<td><span class="textEllipsis" title="',obj.details,'">',obj.details,'</span></td>',
 								'<td>',obj.amount,'</td>',
 								'<td>',Store.classify_Cache[obj.classify],'</td>',
 								'<td>',obj.status?'上架' :'下架','</td>',
@@ -234,23 +230,23 @@
 		},
 		onChangeGoods: function() {
 			var $checkedBox = $('#goodsTable tbody input[type="checkbox"]:checked'),
-					$goodsDlg = $('#goodsDlg'),
-					//var id = $checkedBox.attr('value'),    //jQuery方法
-					id = $checkedBox[0].value,
-					currGoodsData = Store.Cache[id];//////Cache是商品渲染时得到的商品信息缓存
+				$goodsDlg = $('#goodsDlg'),
+				//var id = $checkedBox.attr('value'),    //jQuery方法
+				id = $checkedBox[0].value,
+				currGoodsData = Store.Cache[id];//////Cache是商品渲染时得到的商品信息缓存
 
-				//console.log(currGoodsDate);
+			//console.log(currGoodsDate);
 
-				$goodsDlg.find('#myModalLabel').html('修改商品').end()
-						.find('#btn_saveGoods').html('确定修改').addClass('change').attr('status',1).end()//设置自定义属性做标识
-						.modal('show');
-				$goodsDlg.find('#title').val(currGoodsData.title);
-				$goodsDlg.find('#price').val(currGoodsData.price);
-				$goodsDlg.find('#details').html(currGoodsData.details);
-				$goodsDlg.find('#amount').val(currGoodsData.amount);
-				$goodsDlg.find('#classify').val(currGoodsData.classify);
-				$goodsDlg.find('[name="status"][value="'+ currGoodsData.status +'"]').trigger('click');
-				$goodsDlg.find('#goodsPic').val();
+			$goodsDlg.find('#myModalLabel').html('修改商品').end()
+					.find('#btn_saveGoods').html('确定修改').addClass('change').attr('status',1).end()//设置自定义属性做标识
+					.modal('show');
+			$goodsDlg.find('#title').val(currGoodsData.title);
+			$goodsDlg.find('#price').val(currGoodsData.price);
+			$goodsDlg.find('#details').html(currGoodsData.details);
+			$goodsDlg.find('#amount').val(currGoodsData.amount);
+			$goodsDlg.find('#classify').val(currGoodsData.classify);
+			$goodsDlg.find('[name="status"][value="'+ currGoodsData.status +'"]').trigger('click');
+			$goodsDlg.find('#goodsPic').val();
 				
 		},
 		onDeleteGoods: function() {
@@ -280,13 +276,9 @@
 				data: {ids: ids.join(',')},
 				dataType: 'json',
 				success: function(response){
-					if (response.success){
-						$('#btn_delGoods').attr('disabled','disabled');
-						$('#btn_changeGoods').attr('disabled','disabled');
-						$('#btn_shelves').attr('disabled','disabled');
-						$('#btn_offShelves').attr('disabled','disabled');
-					}else{
-						layer.msg('删除失败,请刷新重试!');
+					if (!response.success){
+
+						layer.msg('删除失败!');
 					};
 
 					Store.param.page = currPage ;
@@ -296,12 +288,12 @@
 		},
 		onChoose:function() {
 			var len = $('#goodsTable tbody input[type="checkbox"]:checked').length,
-					lens = $('#goodsTable tbody input[type="checkbox"]').length,
-					$btn_checkAll = $('#btn_checkAll'),
-					$delGoods = $('#btn_delGoods'),
-					$btn_changeGoods = $('#btn_changeGoods');
-					$btn_shelves = $('#btn_shelves');
-					$btn_offShelves = $('#btn_offShelves');
+				lens = $('#goodsTable tbody input[type="checkbox"]').length,
+				$btn_checkAll = $('#btn_checkAll'),
+				$delGoods = $('#btn_delGoods'),
+				$btn_changeGoods = $('#btn_changeGoods');
+				$btn_shelves = $('#btn_shelves');
+				$btn_offShelves = $('#btn_offShelves');
 				
 			if(len > 0){
 				$delGoods.removeAttr('disabled');

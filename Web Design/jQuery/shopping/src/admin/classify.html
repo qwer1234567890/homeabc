@@ -26,8 +26,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="admin.html">商品管理</a></li>
-        <li><a href="classify.html">类别管理</a></li>
-        <li class="active"><a href="#">用户管理</a></li>
+        <li class="active"><a href="#">类别管理</a></li>
+        <li><a href="user_admin.html">用户管理</a></li>
         <li><a href="#">订单管理</a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
@@ -67,9 +67,10 @@
 <div class="row">
 
 <div class="btn-group mb-20">
-  <button type="button" class="btn btn-success" id="btn_userList">用户列表</button>
-  <button type="button" class="btn btn-info" id="btn_userRecycle">用户回收站</button>
-  <button type="button" class="btn btn-info" id="btn_delUser" disabled>删除用户</button>
+  <button type="button" class="btn btn-success" id="btn_classifyList">类别列表</button>
+  <button type="button" class="btn btn-info" id="btn_addClassify">新增类别</button>
+  <button type="button" class="btn btn-info" id="btn_changeClassify" disabled>修改类别</button>
+  <button type="button" class="btn btn-info" id="btn_delClassify" disabled>删除类别</button>
 </div>
 <div class="col-lg-4 pull-right">
   <div class="input-group">
@@ -136,7 +137,7 @@
 </div>
 <!-- 新增图书 -->
 <!-- masker -->
-<div id="masker-wp" style="display: none;">
+<div id="masker-wp">
   <div class="masker"></div>
   <div class="loading">努力加载中...</div> 
 </div>
@@ -148,6 +149,6 @@
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <script src='../../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
 <script src="../../bower_components/layer/build/layer.js"></script>
-<script src="../js/user_man.js"></script>
+<script src="../js/classify.js"></script>
 </body>
 </html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>wbc购物中心</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/store.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">wbc购物中心</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="javascript:;">首页</a></li>
+        <li><a href="#">我的订单</a></li>
+        <li><a href="#">购物车</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="login"><a href="#">登录</a></li>
+        <li id="reg"><a href="#">注册</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="container">
+<div class="row">
+
+<div class="btn-group mb-20">
+  <button type="button" class="btn btn-success" id="btn_classifyList">类别列表</button>
+  <button type="button" class="btn btn-info" id="btn_addClassify">新增类别</button>
+  <button type="button" class="btn btn-info" id="btn_changeClassify" disabled>修改类别</button>
+  <button type="button" class="btn btn-info" id="btn_delClassify" disabled>删除类别</button>
+</div>
+<div class="col-lg-4 pull-right">
+  <div class="input-group">
+    <input id="searchIpt" type="text" class="form-control" placeholder="请输入类别名称">
+    <span class="input-group-btn">
+      <button class="btn btn-success" type="button" id="btn_searchClassify">搜索</button>
+    </span>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+
+<table class="table table-hover table-bordered table-striped mb-0" id="classifyTable">
+ <!-- On rows -->
+ <thead>
+    <tr class="info">
+      <th class="w-30"><input type="checkbox" id="btn_checkAll"></th>
+      <th class="w-50">序列</th>
+      <th class="w-200">类别名称</th>      
+    </tr>
+  </thead>
+  <tbody>   
+  </tbody>
+</table>
+
+<nav>
+  <div class="jump-wp">
+    <input id="jumpIpt" type="text">
+    <button class="" type="button" id="btn_jump">GO</button>
+  </div> 
+
+  <ul class="pagination pull-right" id="pagination">
+    
+  </ul>
+</nav>
+
+
+</div>
+</div>
+<!-- 注册 -->
+   <div class="modal fade" id="regDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">新增类别</h4>
+      </div>
+      <div class="modal-body">
+      <!-- 图书增加表单 -->
+<form class="form-horizontal" role="form"  method="post" action="../php/reg_login_insert.php">
+   <div class="form-group" id="u_div">
+    <label for="username" class="col-sm-3 control-label">用户名</label>
+    <div class="col-sm-9">
+    <input type="text" class="form-control" placeholder="请输入以字母开头的6~10位数字组合" id="username" name="username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+    <div class="col-sm-9">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="密码" name="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-3 control-label">出生年月</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="date-piaker" placeholder="出生年月" name="birthday">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+    </div>
+  </div>
+  <div class="form-group">
+  <label class="col-sm-3 control-label">性别</label>
+    <div class="col-sm-9">
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" id="inlineRadio1" value="男" checked> 男
+        </label>
+        <label>
+          <input type="radio" name="gender" id="inlineRadio2" value="女"> 女
+        </label>
+      </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-3 control-label">学历</label>
+    <div class="col-sm-4">
+      <select class="form-control" name="edu">
+        <option value="0">请选择</option>
+        <option value="大专">大专</option>
+        <option value="本科">本科</option>
+        <option value="硕士">硕士</option>
+        <option value="博士">博士</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">个人评价</label>
+    <div class="col-sm-9">
+      <textarea class="form-control" rows="3" name="desc"></textarea>
+      <div id="desc-control" class="pull-right"><span></span>/<span></span></div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">爱好</label>
+    <div class="col-sm-9">
+      <div class="checkbox">
+      <label>
+      <input type="checkbox" id="inlineCheckbox1" name="hobbies[]" value="爬山"> 爬山
+    </label>
+    <label>
+      <input type="checkbox" id="inlineCheckbox2" name="hobbies[]" value="旅游"> 旅游
+    </label>
+    <label>
+      <input type="checkbox" id="inlineCheckbox3" name="hobbies[]" value="游泳"> 游泳
+    </label>
+    <label>
+      <input type="checkbox" id="inlineCheckbox4" name="hobbies[]" value="跑步"> 跑步
+    </label>
+      </div>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="col-sm-3 control-label" for="exampleInputFile">图片</label>
+    <input class="col-sm-9" type="file" id="exampleInputFile" name="pic">
+  </div>
+  <div class="form-group">
+    <div class="col-sm-7"></div>
+  <input class="btn btn-xs btn-info" type="submit" value="注册">
+    <input class="btn btn-xs btn-info" type="reset" value="清空">
+   <!--  <input class="btn btn-xs btn-info" type="button" value="返回" id="rtBtn"> -->
+
+
+  </div>
+      
+</form>
+      <!-- 注册表单 -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="btn_saveClassify">&nbsp保存入库</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 注册 -->
+<!-- masker -->
+<!-- <div id="masker-wp">
+  <div class="masker"></div>
+  <div class="loading">努力加载中...</div> 
+</div>
+ -->
+
+
+
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src="../bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../bower_components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="../bower_components/layer/build/layer.js"></script>
+<script src="js/user.js"></script>
+</body>
+</html>

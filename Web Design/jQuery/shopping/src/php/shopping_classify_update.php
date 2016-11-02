@@ -13,7 +13,7 @@
 
     $db->where ('id', $id);
 
-    sleep(2);
+    sleep(0);
 
     if ($db->update ('classify', $data)) {
         echo json_encode(array("success" => true, "message" => "修改成功"));

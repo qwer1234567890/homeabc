@@ -74,3 +74,10 @@
 #jumpIpt{
 	width: 30px;
 }
+.textEllipsis{
+	display: inline-block;
+	width: 320px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
