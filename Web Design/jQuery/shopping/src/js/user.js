@@ -2,31 +2,40 @@
  * Created by Mr.W on 2016/10/23.
  */
 !function(window,document,$,undefined){
-    var user = {
-        init: function() {
-            this.initEvent();
-            this.initDate();
-        },
-        initEvent: function(){
-            $('#reg').on('click',this.onReg);
-        },
-        onReg: function(){
+    var app = angular.module('user',[]);
+    app.controller('user_ctrl',function($scope,$http){
+
+        $scope.goToReg = function() {
+            $scope.data = {};
             $('#regDlg').modal('show');
-        },
-        initDate: function() {//////////////////初始化日期组件
+        };
+        $scope.onReg = function() {
+            //console.log($scope.data);
+            $scope.isSubmiting = true;
+            $http({
+                url:'php/shopping_user_add.php',
+                metohd: 'get',
+                params: $scope.data
+            }).success(function(response){
+                if(response.success){
+                    layer.msg('注册成功');
+                }else{
+                    layer.msg('注册失败');
+                };
+                $scope.isSubmiting = false;
+                $('#regDlg').modal('hide');
+            })
+        };
+        // $scope.emailCheck = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+        // $scope.userCheck = /^[a-zA-z][a-zA-Z0-9_]{5,19}$/;
+        // $scope.mobileCheck = /(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
 
-            $('#date-piaker').datetimepicker({
-                todayBtn:  1,
-                format: 'yyyy-mm-dd',
-                autoclose: 1,
-                minView: 2,
-                language:'zh-CN'
-            });
 
-        }
 
-    };
-    user.init();
+
+
+    });
+
    
     // function jump (){
     //     var $rtBtn = $('#rtBtn');
@@ -140,4 +149,30 @@
         }
         //return false;
     }
+    
+    // var user = {
+    //     init: function() {
+    //         this.initEvent();
+    //         this.initDate();
+    //     },
+    //     initEvent: function(){
+    //         $('#reg').on('click',this.onReg);
+    //     },
+    //     onReg: function(){
+    //         $('#regDlg').modal('show');
+    //     },
+    //     initDate: function() {//////////////////初始化日期组件
+
+    //         $('#date-piaker').datetimepicker({
+    //             todayBtn:  1,
+    //             format: 'yyyy-mm-dd',
+    //             autoclose: 1,
+    //             minView: 2,
+    //             language:'zh-CN'
+    //         });
+
+    //     }
+
+    // };
+    // user.init();
 }(window,document,jQuery)

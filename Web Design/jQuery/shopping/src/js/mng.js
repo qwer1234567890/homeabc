@@ -2,7 +2,7 @@
 	
 	var Store = {
 		$loadingWp: $('#masker-wp'),
-		param:{size:8,page:0,totalpage:0},
+		param:{size:10,page:0,totalpage:0},
 		Cache: {},                       //////渲染商品时得到的商品信息缓存,用于在修改时得到商品的原有信息
 		totalNumbers:{numbers:0},
 		classify_Cache: {},              ////////////类别缓存,作为渲染商品时的map
@@ -104,7 +104,7 @@
 				$.each(data,function(i,obj){
 					arr.push('<tr>',
 								'<td><input type="checkbox" value="',obj.id,'"></td>',
-								'<td>',i + 1,'</td>',
+								'<td>',i + 1 + Store.param.page*Store.param.size,'</td>',
 								'<td title="',obj.title,'">',obj.title,'</td>',
 								'<td>￥',obj.price,'</td>',
 								'<td><span class="textEllipsis" title="',obj.details,'">',obj.details,'</span></td>',
@@ -175,26 +175,23 @@
 		onJumpPage: function() {
 			var jumpPage = $('#jumpIpt').val()*1 - 1;
 
-			//////当页面为空 没一个选项的时候/////////////
 			if(isNaN(jumpPage)){
 				layer.msg('请输入一个数字');
 				$('#jumpIpt').val('');
 				return;
-			};
-		
-			if(Store.param.totalpage == 0){
-				Store.param.page = 0;
-				Store.initTable();
-				$('#jumpIpt').val('');
-				return;
-			};
-			
+			};			
 			//console.log(Libaray.param.totalpage)
 			if(jumpPage < 0){
 				jumpPage = 0;
 			}else if(jumpPage > Store.param.totalpage - 1){
 				jumpPage = Store.param.totalpage - 1;
 			}
+//////当页面为空 没一个选项的时候 Store.param.totalpage - 1 为-1 此时的jumpPage输入一
+///个大于它的值传给后台的page值是-1 会导致一直无法渲染/////////////
+			if(Store.param.totalpage == 0){
+				jumpPage = 0;
+			};
+////////////////////////////////////////////////////////////////////////////////////////
 			Store.param.page = jumpPage;
 			Store.initTable();
 			$('#jumpIpt').val('');

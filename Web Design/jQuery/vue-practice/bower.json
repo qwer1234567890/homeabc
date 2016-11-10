@@ -1,0 +1,26 @@
+{
+  "name": "Wangzhe",
+  "homepage": "https://github.com/qwer1234567890/homeabc",
+  "authors": [
+    "qwer1234567890 <z1z1zz1@126.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "underscore": "^1.8.3",
+    "bootstrap": "^3.3.7",
+    "angular": "angularjs#^1.2.32",
+    "layer": "*",
+    "smalot-bootstrap-datetimepicker": "^2.3.11",
+    "vue": "^2.0.5"
+  }
+}

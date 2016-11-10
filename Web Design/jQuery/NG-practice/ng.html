@@ -1,31 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>ng-practice</title>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="angular/angular.min.js"></script>
+	<script src="angular/angular-route.min.js"></script>
 </head>
-<body ng-app="myAngular" ng-controller="AngularController">
-<h1>{{msg}}</h1>
-<input type="text" ng-model="msg">
-<input type="button" ng-click="show();" value="{{msg}}">
-<div ng-include="'../html/begin.html'"></div>
+<body>
+<div ng-app="test" ng-controller="test_ctrl">
+
+	<input id="myIpt" type="text" ng-model="abc">
+	<p>{{abc | www}}</p>
 
 
 
-<div class="test-div1"></div>
-<div class="test-div2"></div>
-<div class="test-div3"></div>
-<div class="test-div1"></div>
-<div class="test-div2"></div>
-<div class="test-div3"></div>
-<div class="test-div1"></div>
-<div class="test-div2"></div>
-<div class="test-div3"></div>
-<div class="test-div"></div>
-<div class="test-div"></div>
-<script src="../js/jquery-1.8.3.min.js"></script>
-<script src="angular/angular.min.js"></script>
-<script src="angular/angular-route.min.js"></script>
-<script src="ng.js"></script>
+
+
+</div>
+
+
+
+<!-- <script src="ng.js"></script> -->
+<script>
+	
+	var app = angular.module('test',[]);
+	app.fiter('asd',function(){
+		return function(s){
+			
+		}
+	})
+
+	app.filter('www',function() {
+		return function(s){
+			console.log(this)
+			var arr = [];
+			for(var i = 0;i < s.length; i++){
+				if(s[i]%2 == 0){
+					arr.push(s[i]);
+				};
+			}
+			return arr;
+		};
+	});
+
+	app.controller('test_ctrl',function($scope){
+
+		$scope.kkk = function(s){
+		 return	s%2 == 1;
+		}
+
+		$scope.abc = [1,2,3,4,5,6];
+		/*var ipt = document.getElementById('myIpt');
+		ipt.onchange = function(){
+			console.log($scope.abc);
+		}*/
+	});
+	
+
+</script>
 </body>
 </html>

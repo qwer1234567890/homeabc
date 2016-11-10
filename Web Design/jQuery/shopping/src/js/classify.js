@@ -5,7 +5,7 @@
 			this.initEvent();
 			this.initClassify();
 		},
-		param:{size:8,page:0,totalpage:0},
+		param:{size:2,page:0,totalpage:0},
 		totalNumbers:{numbers:0},
 		Cache: {},
 		$loadingWp: $('#masker-wp'),
@@ -65,25 +65,22 @@
 		onJumpPage: function() {
 			var jumpPage = $('#jumpIpt').val()*1 - 1;
 
-			//////当页面为空 没一个选项的时候/////////////
 			if(isNaN(jumpPage)){
 				layer.msg('请输入一个数字');
 				$('#jumpIpt').val('');
 				return;
-			};
-		
-			if(Cls.param.totalpage == 0){
-				Cls.param.page = 0;
-				Cls.initClassify();
-				$('#jumpIpt').val('');
-				return;
-			};
-			
+			};		
 			if(jumpPage < 0){
 				jumpPage = 0;
 			}else if(jumpPage > Cls.param.totalpage - 1){
 				jumpPage = Cls.param.totalpage - 1;
 			}
+//////当页面为空 没一个选项的时候 Cls.param.totalpage - 1 为-1 此时的jumpPage输入一
+///个大于它的值传给后台的page值是-1 会导致一直无法渲染/////////////
+			if(Cls.param.totalpage == 0){
+				jumpPage = 0;
+			};
+////////////////////////////////////////////////////////////////////////////////////////
 			Cls.param.page = jumpPage;
 			Cls.initClassify();
 			$('#jumpIpt').val('');
@@ -109,7 +106,7 @@
 			Cls.initClassify();
 		},
 		onClassifyList: function (){
-			//Cls.param.query = '';
+			Cls.param.query = '';
 			Cls.initClassify();
 		},
 		onChangeClassify: function() {
@@ -238,7 +235,7 @@
 			})
 		},
 		onRenderPage: function(data){
-			console.log(data);
+			//console.log(data);
 			var total = data.total,
 				size = Cls.param.size,
 				totalpage = Math.ceil(total / size),i,
@@ -278,7 +275,7 @@
 			$.each(data,function(i,obj){
 				arr.push('<tr>',
 							'<td><input type="checkbox" value="',obj.id,'"></td>',
-							'<td>',i + 1,'</td>',
+							'<td>',i + 1 + Cls.param.page*Cls.param.size,'</td>',
 							'<td title="',obj.name,'">',obj.name,'</td>',						
 						'</tr>');
 				Cls.Cache[obj.id] = obj.name;

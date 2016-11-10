@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/store.css">
 </head>
-<body>
+<body ng-app="user_man" ng-controller="user_ctrl">
 
 
 <nav class="navbar navbar-inverse" role="navigation">
@@ -67,40 +67,60 @@
 <div class="row">
 
 <div class="btn-group mb-20">
-  <button type="button" class="btn btn-success" id="btn_userList">用户列表</button>
-  <button type="button" class="btn btn-info" id="btn_userRecycle">用户回收站</button>
-  <button type="button" class="btn btn-info" id="btn_delUser" disabled>删除用户</button>
+  <button type="button" ng-class="{true: 'btn-success',false: 'btn-info'}[param.status==0]" class="btn" ng-click="onUserList()">用户列表</button>
+  <button type="button" ng-class="{true: 'btn-success',false: 'btn-info'}[param.status==2]" class="btn" ng-click="recycleList()">用户回收站</button>
+  
 </div>
+<div class="btn-group mb-20">
+  <button type="button" class="btn btn-link" ng-show="param.status==0" ng-click="onDelUser()" ng-disabled="getOpts().length==0 || oneCheck">删除用户</button>
+  <button type="button" class="btn btn-link" ng-show="param.status==2" ng-click="onRecover()" ng-disabled="getOpts().length==0 || oneCheck">恢复</button>
+  <button type="button" class="btn btn-link" ng-show="param.status==2" ng-click="onRealDel()" ng-disabled="getOpts().length==0 || oneCheck">彻底删除</button>
+</div>
+
 <div class="col-lg-4 pull-right">
   <div class="input-group">
-    <input id="searchIpt" type="text" class="form-control" placeholder="请输入类别名称">
+    <input id="searchIpt" type="text" class="form-control" placeholder="请输入用户ID">
     <span class="input-group-btn">
-      <button class="btn btn-success" type="button" id="btn_searchClassify">搜索</button>
+      <button class="btn btn-success" type="button" ng-click="onSearch()">搜索</button>
     </span>
   </div><!-- /input-group -->
 </div><!-- /.col-lg-6 -->
 
-<table class="table table-hover table-bordered table-striped mb-0" id="classifyTable">
+<table class="table table-hover table-bordered table-striped mb-0" id="userTable">
  <!-- On rows -->
- <thead>
     <tr class="info">
-      <th class="w-30"><input type="checkbox" id="btn_checkAll"></th>
-      <th class="w-50">序列</th>
-      <th class="w-200">类别名称</th>      
+      <th class="w-30"><input type="checkbox" ng-model="allCheck" ng-checked="isCheckAll" ng-disabled="totalOpt==0" ng-click="checkOrNot()"></th>
+      <th>序号</th>
+      <th>用户名</th>
+      <th>密码</th>
+      <th>邮箱</th>
+      <th>电话</th>
+      <th>等级</th>   
     </tr>
-  </thead>
-  <tbody>   
-  </tbody>
+    <tr ng-repeat="item in users">
+      <td><input ng-checked="allCheck" type="checkbox" value="{{item.id}}" ng-model="oneCheck" ng-click="checkOrNot()"></td>
+      <td>{{$index + 1 + currNumber}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.password}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.mobile}}</td>
+      <td>{{item.type}}</td>
+    </tr>
+  
 </table>
 
 <nav>
   <div class="jump-wp">
     <input id="jumpIpt" type="text">
-    <button class="" type="button" id="btn_jump">GO</button>
+    <button type="button" ng-click="onJumpPage()">GO</button>
   </div> 
 
   <ul class="pagination pull-right" id="pagination">
-    
+    <li class="fist-page" ng-click="onFistPage()" ng-class="{true: 'disabled'}[param.page==0]"><a href="javascript:;">&laquo;</a></li>
+    <li class="prev" ng-click="onPrevPage()" ng-class="{true: 'disabled'}[param.page==0]"><a href="javascript:;">&lsaquo;</a></li>
+    <li ng-class="{true: 'active'}[$index==param.page]" ng-repeat="x in pageArr" ng-click="onPaging()"><a href="javascript:;">{{$index + 1}}</a></li>
+    <li class="next" ng-click="onNextPage()"><a href="javascript:;">&rsaquo;</a></li>
+    <li class="last-page" ng-click="onLastPage()"><a href="javascript:;">&raquo;</a></li>
   </ul>
 </nav>
 
@@ -147,7 +167,9 @@
 
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <script src='../../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="../../bower_components/underscore/underscore-min.js"></script>
 <script src="../../bower_components/layer/build/layer.js"></script>
-<script src="../js/user_man.js"></script>
+<script src="../js/user_mng.js"></script>
 </body>
 </html>

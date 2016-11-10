@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务计划</title>
+	<style>
+		.todos{
+			width: 300px;
+			margin: 50px auto;
+			background: #ccc;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<div class="todos" id="todos">
+	<h1>TODOS</h1>
+	<hr>
+	<div>
+		<input type="text" v-on:keyup.enter="getMsg" v-model="msg">
+	</div>
+
+	<hr>
+	<ul>
+		<li></li>
+	</ul>
+	
+
+
+
+
+
+</div>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var test = new Vue({
+		el: '#todos',
+		data:{
+			msg:  ''
+		},
+		methods: {		
+			getMsg: function() {
+			}
+		},
+		watch: {
+			msg: function(){
+				console.log(6)
+			}
+		}
+	})
+</script>
+</body>
+</html>

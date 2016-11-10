@@ -36,7 +36,7 @@ $user = $db -> rawQuery($sql);
 $user_count = $db -> rawQuery($sql2);
 $total = $user_count[0]['count'];
 
-sleep(2);
+sleep(1);
 
 if ($user) {
 	echo json_encode(Array("success" => true, "total" => $total, "data" => $user, "message" => "请求成功"));
