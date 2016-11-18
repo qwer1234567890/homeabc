@@ -11,6 +11,8 @@ $sql = "select * from user where username='$u' and password = '$p'";
 
 $user = $db -> rawQuery($sql);
 
+sleep(1);
+
 if ($user) {
 	$_SESSION['user'] = $user;
 	echo json_encode(Array("success" => true, "data" => $user, "message" => "请求成功"));

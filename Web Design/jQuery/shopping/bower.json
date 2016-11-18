@@ -20,6 +20,8 @@
     "bootstrap": "^3.3.7",
     "angular": "angularjs#^1.2.32",
     "layer": "*",
-    "smalot-bootstrap-datetimepicker": "^2.3.11"
+    "smalot-bootstrap-datetimepicker": "^2.3.11",
+    "vue": "^2.0.5",
+    "handlebars": "^4.0.5"
   }
 }

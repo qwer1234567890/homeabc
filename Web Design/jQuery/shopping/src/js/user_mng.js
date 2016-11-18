@@ -1,27 +1,41 @@
 
 !function(window,document,$,undefined) {
 	var app = angular.module('user_man',[]);
+
+	app.filter('showLev',function(){
+		return function(type) {
+			return type == 1?'普通用户' : '管理员';
+		}
+	});
+////////////用户序号变更管理/////////////////////////////////
+	var currNumber = 0;
+	app.filter('currNum',function() {
+		return function($index) {
+			return $index + 1 + currNumber;
+		}
+	})
+/////////////////////////////////////////////////////////////
 	app.controller('user_ctrl',function($scope,$http){
 		$scope.param = {
-			size: 2,
+			size: 6,
 			page: 0,
 			ids: [],
 			status: 0
 		};
 
-
-		$scope.onPaging = function () {
-			$scope.param.page = this.$index;
-			listTable ();
-		};
+		app.filter('showLev',function(){
+		return function(type) {
+			return type == 1?'普通用户' : '管理员';
+		}
+	});
 		
 		$scope.onJumpPage = function() {
-			var jumpPage = $('#jumpIpt').val()*1 - 1;
+			var jumpPage = $scope.jumpIpt*1 - 1;
 
 			//////当页面为空 没一个选项的时候/////////////
 			if(isNaN(jumpPage)){
 				layer.msg('请输入一个数字');
-				$('#jumpIpt').val('');
+				$scope.jumpIpt = '';
 				return;
 			};
 			if(jumpPage < 0){
@@ -37,43 +51,49 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 			$scope.param.page = jumpPage;
 			listTable ();
-			$('#jumpIpt').val('');
+			$scope.jumpIpt = '';
 		};
+		
+		$scope.onPaging = function () {
+			$scope.param.page = this.$index;
+			listTable ();
+		};
+
 		$scope.onFistPage = function() {
-			// console.log(this)
-			// return
-			// if($this.hasClass('disabled')){
-			// 	return;
-			// };
 			$scope.param.page = 0;
 			listTable ();
 		};
+
 		$scope.onPrevPage = function() {
-			// console.log($scope)
-			// return
 			$scope.param.page--;
 			listTable ();
 		};
+
 		$scope.onLastPage = function() {
 			$scope.param.page = $scope.pageArr.length - 1;
 			listTable ();
 		};
+
 		$scope.onNextPage = function() {
 			$scope.param.page++;
 			listTable ();
 		};
+
 		$scope.onUserList = function() {
 			$scope.param.status = 0;
 			$scope.param.page = 0;
+			$scope.param.query = '';
 			listTable ();
 		};
+
 		$scope.recycleList = function() {
 			$scope.param.status = 2;
 			$scope.param.page = 0;
 			listTable ();
 		};
+
 		$scope.onSearch = function () {
-			$scope.param.query = $('#searchIpt').val();
+			$scope.param.query = $scope.searchIpt;
 			listTable ();
 		};
 		// $scope.onClickCheck = function(e){
@@ -124,6 +144,7 @@
 			//console.log(len)
 			return currPage;
 		};
+
 		$scope.onDelUser = function() {
 			// console.log($scope.allCheck);
 			// return;
@@ -139,6 +160,7 @@
 				listTable ();
 			});
 		};
+
 		$scope.onRecover = function() {
 			$http({
 				url: '../php/shopping_user_status.php',
@@ -152,6 +174,7 @@
 				listTable ();
 			});
 		};
+
 		$scope.onRealDel = function() {
 			$http({
 				url: '../php/shopping_user_status.php',
@@ -165,10 +188,11 @@
 				listTable ();
 			});
 		};
-		$scope.currNumber = 0;
+
 		$scope.afterPageNumber = function(){
-			$scope.currNumber = $scope.param.page*$scope.param.size;
+			currNumber = $scope.param.page*$scope.param.size;
 		};
+		$scope.acPage = 0;
 		function listTable () {
 			$('#masker-wp').show();
 			$http({
@@ -181,7 +205,8 @@
 						layer.msg('暂无数据');
 					};
 					$scope.afterPageNumber();
-					$('#searchIpt').val('');
+					$scope.acPage = $scope.param.page;
+					$scope.searchIpt = '';
 					$scope.allCheck = false;
 					$scope.totalOpt = response.total;									
 					$scope.users = response.data;
@@ -189,7 +214,9 @@
 					$('#masker-wp').hide();
 				});				
 		};
+
 		listTable ();
+
 		function getPageArr (total,size) {
 			return _.range(0,total/size);
 		};

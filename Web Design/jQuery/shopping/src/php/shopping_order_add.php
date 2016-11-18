@@ -19,7 +19,7 @@
 
     $id = $db->insert('orders', $data);
 
-    sleep(2);
+    sleep(1);
 
     if ($id > 0) {
         /*$db->where('id', explode(',', $gids), 'IN');

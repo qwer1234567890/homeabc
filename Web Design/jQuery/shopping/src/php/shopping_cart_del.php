@@ -6,7 +6,7 @@
 
 	$sql = "delete from cart where id = $id";
 
-    sleep(2);
+    sleep(0);
 
     $r = $db->doDelete($sql);
 

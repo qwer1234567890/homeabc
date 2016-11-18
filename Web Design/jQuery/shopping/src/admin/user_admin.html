@@ -79,7 +79,7 @@
 
 <div class="col-lg-4 pull-right">
   <div class="input-group">
-    <input id="searchIpt" type="text" class="form-control" placeholder="请输入用户ID">
+    <input type="text" class="form-control" placeholder="请输入用户ID" ng-model="searchIpt">
     <span class="input-group-btn">
       <button class="btn btn-success" type="button" ng-click="onSearch()">搜索</button>
     </span>
@@ -99,26 +99,26 @@
     </tr>
     <tr ng-repeat="item in users">
       <td><input ng-checked="allCheck" type="checkbox" value="{{item.id}}" ng-model="oneCheck" ng-click="checkOrNot()"></td>
-      <td>{{$index + 1 + currNumber}}</td>
+      <td>{{$index | currNum}}</td>
       <td>{{item.username}}</td>
       <td>{{item.password}}</td>
       <td>{{item.email}}</td>
       <td>{{item.mobile}}</td>
-      <td>{{item.type}}</td>
+      <td>{{item.type | showLev}}</td>
     </tr>
   
 </table>
 
 <nav>
   <div class="jump-wp">
-    <input id="jumpIpt" type="text">
+    <input type="text" ng-model="jumpIpt">
     <button type="button" ng-click="onJumpPage()">GO</button>
   </div> 
 
   <ul class="pagination pull-right" id="pagination">
     <li class="fist-page" ng-click="onFistPage()" ng-class="{true: 'disabled'}[param.page==0]"><a href="javascript:;">&laquo;</a></li>
     <li class="prev" ng-click="onPrevPage()" ng-class="{true: 'disabled'}[param.page==0]"><a href="javascript:;">&lsaquo;</a></li>
-    <li ng-class="{true: 'active'}[$index==param.page]" ng-repeat="x in pageArr" ng-click="onPaging()"><a href="javascript:;">{{$index + 1}}</a></li>
+    <li ng-class="{true: 'active'}[$index==acPage]" ng-repeat="x in pageArr" ng-click="onPaging()"><a href="javascript:;">{{$index + 1}}</a></li>
     <li class="next" ng-click="onNextPage()"><a href="javascript:;">&rsaquo;</a></li>
     <li class="last-page" ng-click="onLastPage()"><a href="javascript:;">&raquo;</a></li>
   </ul>
@@ -127,34 +127,7 @@
 
 </div>
 </div>
-<!-- 新增图书 -->
-   <div class="modal fade" id="classifyDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">新增类别</h4>
-      </div>
-      <div class="modal-body">
-      <!-- 图书增加表单 -->
-       <form class="form-horizontal" role="form" id="fm_addClassify">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">类别名称</label>
-            <div class="col-sm-6"  id="checkName">
-              <input type="text" class="form-control" id="classifyName" placeholder="类别名称">
-            </div>
-          </div>
-        </form>
-      <!-- 图书增加表单 -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary" id="btn_saveClassify">&nbsp保存入库</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- 新增图书 -->
+
 <!-- masker -->
 <div id="masker-wp" style="display: none;">
   <div class="masker"></div>

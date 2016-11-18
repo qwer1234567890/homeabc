@@ -2,13 +2,131 @@
  * Created by Mr.W on 2016/10/23.
  */
 !function(window,document,$,undefined){
+
     var app = angular.module('user',[]);
+
     app.controller('user_ctrl',function($scope,$http){
+        
+        $scope.param = {
+            // classify: '',
+            size: 9,
+            page: 0
+        };
+        $scope.acPage = 0;
+
+        $scope.cartList = function() {
+            $http({
+                url: 'php/shopping_cart_list.php'
+            }).success(function(response){
+                $scope.cartData = response.data;
+                $scope.cartNum = response.total;
+            });
+        };
+
+        $scope.onDelCart = function(a) {
+            $http({
+                url: 'php/shopping_cart_del.php',
+                params:{id: a}
+            }).success(function(response){
+                $scope.cartList();
+            });
+        };
+
+
+        $scope.showDlog = function() {
+            $scope.timer = setTimeout(function(){
+                $('#cartDlog').fadeIn();
+            },300);         
+        };
+
+        $scope.hideDlog = function() {
+            clearTimeout($scope.timer);
+            $('#cartDlog').fadeOut();
+        };
+
+        $scope.onAddCart = function(a) {
+           
+            $http({
+                url: 'php/shopping_cart_add.php',
+                params: {gid: a}
+            }).success(function(response){
+                if(response.success){
+                    $scope.cartList();
+                }else{
+                    layer.msg('加入购物车失败！请重试')
+                };
+            });
+        };
+
+        $scope.onJump = function() {
+            var jumpPage = $scope.jumpIpt*1 - 1;
+
+            //////当页面为空 没一个选项的时候/////////////
+            if(isNaN(jumpPage)){
+                layer.msg('请输入一个数字');
+                $scope.jumpIpt = '';
+                return;
+            };
+            if(jumpPage < 0){
+                jumpPage = 0;
+            }else if(jumpPage > $scope.pageArr.length - 1){
+                jumpPage = $scope.pageArr.length - 1;
+            };
+//////当页面为空 没一个选项的时候 $scope.pageArr.length - 1 值为-1 此时的jumpPage输入一
+///个大于它的值传给后台的page值是-1 会导致一直无法渲染 所以重新让jumpPage = 0/////////////
+            if($scope.pageArr.length == 0){
+                jumpPage = 0;
+            };
+////////////////////////////////////////////////////////////////////////////////////////
+            $scope.param.page = jumpPage;
+            listTable ();
+            $scope.jumpIpt = '';
+        };
+
+        $scope.onSearch = function() {
+            $scope.param.query = $scope.searchIpt;
+            $scope.param.classify = '';
+            listTable();
+        };
+
+        $scope.onGoodsList = function(a) {
+            $scope.param.query = '';
+            $scope.param.page = 0;
+            $scope.param.classify = a;
+            listTable();
+        };
+        
+
+        $scope.onPaging = function () {
+            $scope.param.page = this.$index;
+            listTable ();
+        };
+
+        $scope.onFistPage = function() {
+            $scope.param.page = 0;
+            listTable ();
+        };
+
+        $scope.onPrevPage = function() {
+            $scope.param.page--;
+            listTable ();
+        };
+
+        $scope.onLastPage = function() {
+            $scope.param.page = $scope.pageArr.length - 1;
+            listTable ();
+        };
+
+        $scope.onNextPage = function() {
+            $scope.param.page++;
+            listTable ();
+        };
 
         $scope.goToReg = function() {
             $scope.data = {};
             $('#regDlg').modal('show');
         };
+
         $scope.onReg = function() {
             //console.log($scope.data);
             $scope.isSubmiting = true;
@@ -26,153 +144,74 @@
                 $('#regDlg').modal('hide');
             })
         };
+        $scope.logOut = function() {
+            if(confirm('确定要退出吗？')){
+               $http({
+                    url: 'php/shopping_user_logout.php',
+                    method: 'get'
+               }).success(function(response){
+                    //console.log(response)
+                    layer.msg('成功退出');
+                    setTimeout(function(){
+                        location.href = 'index.php';
+                    },500);
+               });
+            };
+        };
         // $scope.emailCheck = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
         // $scope.userCheck = /^[a-zA-z][a-zA-Z0-9_]{5,19}$/;
         // $scope.mobileCheck = /(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+        
+        function listTable() {
 
+            $('#masker-wp').modal('show');
+            $http({
+                url: "php/shopping_goods_list.php",
+                method: 'get',
+                params: $scope.param
+            }).success(function(response) {
+                //console.log(response.data)
+                if(response.success){
 
+                    $scope.goodsData = response.data;
+                    $scope.cartList && $scope.cartList();
+                }else{
+                    layer.msg('暂无数据')
+                };
+                $scope.searchIpt = '';
+                $scope.acPage = $scope.param.page;
+                $scope.pageArr = getPageArr(response.total,$scope.param.size);
+                $('#masker-wp').modal('hide');
+            });
+           
+        };
+        listTable();
 
-
+        function getPageArr (total,size) {
+            
+            return _.range(0,total/size);
+        };
 
     });
 
    
-    // function jump (){
-    //     var $rtBtn = $('#rtBtn');
-    //     $rtBtn.on('click',function(){
-    //         window.location.href = 'begin.html';
-    //     });
-    // }
-    // jump ();
+///////////////handlebar 和Angular冲突 保留着 如果全用jquery 可以用/////////////////
+        // function listTable() {
+        //     var url = "php/shopping_goods_list.php";
+        //     $('#masker-wp').modal('show');
+        //     $.get(url, {size: 8,classify: 1},function(response){
 
-    function form_check(){
-        var $form = $('form');
-        $form.on('submit',function(){      
-            return check();    
-        });
-    }
-    form_check();  
-/////////////// 得到选中的hobbies返回一个数组/////////////////
-    function hob () {
-            var arr = [];
-            $('[name^="hobbies"]').each(function(){
-                var $this = $(this);///将this转化为jQuery对象;
-                //if($this.prop('checked')){  jquery的方法来判断复选框是否被选中;
-                //if($this[0].checked){  如果用.checked判断是否被选中需要将jQuery对象转换为dom对象;
-                if(this.checked){  ////这时候this是dom对象;只有在dom对象时xx.checked才返回true或者false;               
-                arr.push($this.val());//这是用到了val()方法,所以this需要变成jQuery对象——$this;
-                }
-            })
-            return arr;
-        };
-///////////// 事件账号文本框不能输入除数字和字母以外的字符;
-    function uname_check(){
-        var $uname = $('[name="username"]'),
-            $u_div = $('#u_div'),
-            user_check = /^[a-zA-z][a-zA-Z0-9_]{0,9}$/,
-            user_check2 = /^[A-Za-z0-9]+$/,len;
-            //console.log($u_div[0])
-        $uname.on('keydown',function(){
-        len = $uname.val().length;
-        });
-        $uname.on('input',function(){
-        //console.log(len);
-            if(!user_check2.test($uname.val())){
-                $uname.val($uname.val().substr(0,len));
-            }else if(!user_check.test($uname.val())){
-                $u_div.addClass('has-error');
-            }else if($uname.val() ==''){
-                $u_div.removeClass('has-error');
-            }else{
-                $u_div.removeClass('has-error');
-            };
-        });
-    }
-    uname_check();
+        //         if(response.success){
+        //             var source = $('#tLst').html();
+        //             var template = Handlebars.compile(source)
+        //             var html = template(response);
+        //             $('#tLst').html(html);
+        //         }else{
 
-   
-////////////////////文本框动态显示字符数////////////////////
-    function desc_check() {
-        var $desc_control = $('#desc-control'),
-            $desc = $('[name="desc"]'),
-            $num1 = $desc_control.find('span:first'),
-            $num2 = $desc_control.find('span:last'),
-            len2 = 10,len1;
-            $num1.html(0);
-            $num2.html(len2);
-        $desc.on('input',function () {
-            len1 = $desc.val().length;
-            $num1.html(len1);
-            if(len1 > len2){
-               $desc.val($desc.val().substr(0,len2));
-               $num1.html(len2);
-            }
-        })
-    }
-    desc_check();    
-    
+        //         };
+        //         $('#masker-wp').modal('hide');
+        //     },'json');
+        // };
+        // listTable();
 
-    function check() {
-        var mail_check = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
-        var user_check = /^[a-zA-z][a-zA-Z0-9_]{5,9}$/;
-
-        var date = {
-            username: $('[name="username"]').val(),
-            password: $('[name="password"]').val(),
-            email: $('[name="email"]').val(),
-            edu: $('[name="edu"]').val(),
-            hobbies: hob()
-        };   
-        //console.log(date.hobbies);
-        if($.trim(date.username) == ''){
-            alert('用户名不能为空');
-            return false;            
-        }else if(!user_check.test(date.username)){
-            alert('请以字母开头输入数字或字母组合的6~10位数');
-            return false;
-        };
-        if($.trim(date.password) == ''){
-            alert('密码不能为空');
-            return false;            
-        }
-        if(!mail_check.test(date.email)){
-            alert('请输入正确的邮箱格式')
-            return false;
-        }
-        if(date.edu == '0'){
-            alert('请选择学历');
-            return false;            
-        }
-        if(date.hobbies.length <= 0){
-            alert('请选择爱好')
-            return false;
-        }
-        //return false;
-    }
-    
-    // var user = {
-    //     init: function() {
-    //         this.initEvent();
-    //         this.initDate();
-    //     },
-    //     initEvent: function(){
-    //         $('#reg').on('click',this.onReg);
-    //     },
-    //     onReg: function(){
-    //         $('#regDlg').modal('show');
-    //     },
-    //     initDate: function() {//////////////////初始化日期组件
-
-    //         $('#date-piaker').datetimepicker({
-    //             todayBtn:  1,
-    //             format: 'yyyy-mm-dd',
-    //             autoclose: 1,
-    //             minView: 2,
-    //             language:'zh-CN'
-    //         });
-
-    //     }
-
-    // };
-    // user.init();
 }(window,document,jQuery)

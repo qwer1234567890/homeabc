@@ -3,15 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>任务计划</title>
-	<style>
-		.todos{
-			width: 300px;
-			margin: 50px auto;
-			background: #ccc;
-		}
-
-
-	</style>
+	<link rel="stylesheet" href="../css/todos.css">
 </head>
 <body>
 
@@ -19,37 +11,34 @@
 	<h1>TODOS</h1>
 	<hr>
 	<div>
-		<input type="text" v-on:keyup.enter="getMsg" v-model="msg">
+		<input type="text" v-on:keyup.enter="getMsg(msg)" v-model.lazy="msg">
 	</div>
-
-	<hr>
-	<ul>
-		<li></li>
-	</ul>
 	
-
-
-
+	<hr>
+	<ul class="addItem">
+		<li v-for="x in filterTodos" 
+			v-bind:class="{textwp: x == changeItem}">		
+			<b v-bind:class="{grey: !x.completed,red: x.completed}" 
+				v-on:click="doCompleted(x)"></b>
+			<i v-bind:class="{isCpl: x.completed}" 	
+				v-on:dblclick="changeText(x)">{{x.title}}</i>
+			<span v-on:click="delMsg(x)">&times</span>
+			<input type="text" v-model="x.title" 
+				v-on:keyup.enter="saveText(x)" 
+				v-on:blur="saveText(x)">
+		</li>
+	</ul>
+	<div class="toorbar">
+		<span>还剩{{len}}项</span>
+		<a href="#all" v-bind:class="{selected: visibility=='all'}">所有</a>
+		<a href="#completed" v-bind:class="{selected: visibility=='completed'}">已完成</a>
+		<a href="#uncompleted" v-bind:class="{selected: visibility=='uncompleted'}">未完成</a>
+	</div>
+	
 
 
 </div>
 <script src="../bower_components/vue/dist/vue.min.js"></script>
-<script>
-	var test = new Vue({
-		el: '#todos',
-		data:{
-			msg:  ''
-		},
-		methods: {		
-			getMsg: function() {
-			}
-		},
-		watch: {
-			msg: function(){
-				console.log(6)
-			}
-		}
-	})
-</script>
+<script src="../js/todos.js"></script>
 </body>
 </html>
